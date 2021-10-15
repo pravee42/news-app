@@ -4,13 +4,23 @@ import './style.css';
 export default function NewsCardComponent(props) {
 	return (
 		<>
-			<div className='newsCard'>
-				<img src={props.image} alt={'Image not found'} />
+			<div className='newsCard border border-light shadow-sm p-3 mb-5 bg-body rounded '>
+				<img
+					src={props.image}
+					lazy
+					alt={'Loading error'}
+					style={{ maxHeight: 150 }}
+					className='img-thumbnail'
+				/>
 				<div className='news'>
-					{props.shortnews && <h6 className='heading'>{props.news}</h6>}
+					{props.shortnews && <h6 className='heading '>{props.news}</h6>}
 					{!props.shortnews && <h6 className='heading'>{props.news}</h6>}
-					<p className='summary'>{props.shortnews}</p>
-					<a className='a_link' href={props.link} target='_blank'>
+					<p className='summary text-muted'>{props.shortnews}</p>
+					<a
+						className='btn btn-outline-primary'
+						rel='noreferrer'
+						href={props.link}
+						target='_blank'>
 						Source
 					</a>
 				</div>

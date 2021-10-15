@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import NewsCardComponent from '../cards/newscard';
 
-export default function SportsNewsComponent() {
+export default function SportsNewsLatestComponent() {
 	const [news, setNews] = useState([]);
 
 	const getNews = async () => {
 		await axios
-			.get('https://newsapi-abipravi.herokuapp.com/sports')
+			.get('http://newsapi-abipravi.herokuapp.com/sports/latest')
 			.then((res) => setNews(res.data))
 			.then((err) => console.error(err));
 	};

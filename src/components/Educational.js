@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import NewsCardComponent1 from '../cards/newscard1';
 import NewsCardComponent from '../cards/newscard';
 
 export default function EducationalNews() {
@@ -10,18 +9,20 @@ export default function EducationalNews() {
 
 	const getNews = async () => {
 		await axios
-			.get('https://newsapi-abipravi.herokuapp.com/search/educationreaserch')
+			.get('https://newsapi-abipravi.herokuapp.com/search/education zee news')
 			.then((res) => setNews(res.data))
 			.then((err) => console.error(err));
 
 		await axios
-			.get('https://newsapi-abipravi.herokuapp.com/search/school')
+			.get('https://newsapi-abipravi.herokuapp.com/search/education exams')
 			.then((res) => {
 				setnews_array(res.data);
 			});
 
 		await axios
-			.get('https://newsapi-abipravi.herokuapp.com/search/schoolindia')
+			.get(
+				'https://newsapi-abipravi.herokuapp.com/search/education times of india',
+			)
 			.then((res) => {
 				setSchool(res.data);
 			});
@@ -33,7 +34,20 @@ export default function EducationalNews() {
 
 	return (
 		<div>
-			{news.length === 0 && <h1>Loading</h1>}
+			{news.length === 0 && (
+				<div
+					style={{
+						width: '100%',
+						height: '100%',
+						display: 'flex',
+						justifyContent: 'center',
+						padding: '100px',
+					}}>
+					<div class='spinner-border text-primary' role='status'>
+						<span class='visually-hidden'>Loading...</span>
+					</div>
+				</div>
+			)}
 			{news.map((data) => {
 				return (
 					<NewsCardComponent
@@ -46,7 +60,7 @@ export default function EducationalNews() {
 			})}
 			{school.map((data) => {
 				return (
-					<NewsCardComponent1
+					<NewsCardComponent
 						image={data.image}
 						news={data.news}
 						link={data.link}
@@ -56,7 +70,7 @@ export default function EducationalNews() {
 			})}
 			{news_array.map((data) => {
 				return (
-					<NewsCardComponent1
+					<NewsCardComponent
 						image={data.image}
 						news={data.news}
 						link={data.link}

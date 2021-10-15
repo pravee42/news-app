@@ -15,11 +15,24 @@ export default function TechNews() {
 
 	useEffect(() => {
 		getNews();
-	}, []);
+	}, [1]);
 
 	return (
 		<div>
-			{news.length === 0 && <h1>Loading</h1>}
+			{news.length === 0 && (
+				<div
+					style={{
+						width: '100%',
+						height: '100%',
+						display: 'flex',
+						justifyContent: 'center',
+						padding: '100px',
+					}}>
+					<div class='spinner-border text-primary' role='status'>
+						<span class='visually-hidden'>Loading...</span>
+					</div>
+				</div>
+			)}
 			{news.map((data) => {
 				return (
 					<NewsCardComponent
