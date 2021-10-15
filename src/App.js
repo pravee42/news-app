@@ -40,7 +40,6 @@ export default function App() {
 
 	return (
 		<Router>
-			<meta name='viewport' content='width=device-width, user-scalable=no' />
 			<div style={{ overflow: 'hidden', height: '100vh' }}>
 				<div
 					{...handlers}
