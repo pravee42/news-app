@@ -10,6 +10,7 @@ import EducationalNews from './components/Educational';
 import SportsNewsComponent from './components/Sports';
 import SportsNewsLatestComponent from './components/SportsLatest';
 import BusinessNews from './components/business';
+import GoogleLoginComponent from './components/googleLogin';
 
 export default function App() {
 	const [open, setOpen] = React.useState(false);
@@ -128,6 +129,9 @@ export default function App() {
 								</Route>
 								<Route exact path='/business'>
 									<BusinessNews />
+								</Route>
+								<Route exact path='/gauth'>
+									<GoogleLoginComponent />
 								</Route>
 								<Route exact path='/'>
 									<Home />
