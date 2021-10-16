@@ -16,13 +16,20 @@ export default function NewsCardComponent(props) {
 					{props.shortnews && <h6 className='heading '>{props.news}</h6>}
 					{!props.shortnews && <h6 className='heading'>{props.news}</h6>}
 					<p className='summary text-muted'>{props.shortnews}</p>
-					<a
-						className='btn btn-outline-primary'
-						rel='noreferrer'
-						href={props.link}
-						target='_blank'>
-						Source
-					</a>
+					<div
+						className='d-flex justify-content-start d-grid gap-3'
+						style={{ width: '50%' }}>
+						<a
+							className='btn btn-outline-primary'
+							rel='noreferrer'
+							href={props.link}
+							target='_blank'>
+							Source
+						</a>
+						<button className='btn btn-outline-primary space'>
+							Add to Bookmark
+						</button>
+					</div>
 				</div>
 			</div>
 		</>

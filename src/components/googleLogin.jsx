@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { GoogleLogin } from 'react-google-login'
 import axios from 'axios';
 import emailjs from 'emailjs-com';
 import './../styles/App.css';
@@ -38,26 +37,37 @@ export default function GoogleLoginComponent() {
                 setLoading(false);
                 alert("err", err)
         }
-        ))
+            ))
+        await localStorage.setItem("user", e.profileObj.email)
     }
 
     return (
         <div >
-            <GoogleLogin clientId="692593559541-2rgin6kcfke1et55od12epm3tth3dp7a.apps.googleusercontent.com" onSuccess={responseGoogle}
-                onFailure={responseGoogle} />
             {
                 loading === false ? (<div
                     style={{
-                        margin: 10, display: 'flex', flexDirection: 'column', height: '60vh', width: '50%', justifyContent: 'space-between'
+                        margin: 10, display: 'flex', flexDirection: 'column', height: '100vh', width: '100%', justifyContent: 'center', alignItems: 'center',
+                        overflowX: 'hidden',
                     }}
                 >
-                    <input type="text" value={name} className="inputs border border-success rounded-2 shadow-sm" placeholder="Name" onChange={(e) => { setName(e.target.value) }} />
-                    <input type="email" onChange={(e) => { setMail(e.target.value) }} value={mail} className="inputs border border-success rounded-2 shadow-sm" placeholder="Email Address" />
-                    <input type="text" value={subject} className="inputs border border-success rounded-2 shadow-sm" placeholder="Subject" onChange={(e) => { setSubject(e.target.value) }} />
-                    <textarea value={message} onChange={(e) => setMessage(e.target.value)}className="inputs border border-success rounded-2 shadow-sm" placeholder="Message" aria-label="With textarea"></textarea>
-                    <div style={{ margin: 10 }}>
-                        <button onClick={sendmail} class="btn btn-outline-primary">Send FeedBack Mail</button>
+                    <div style={{
+                        width: '50%',
+                        margin: 10
+                    }}>
                     </div>
+                    <div style={{ padding: 10, border: '1px solid blue', marginTop: 10, display: 'flex', flexDirection: 'column', height: '60vh', width: '50%', justifyContent: 'space-between' }}>
+                        <p style={{
+                            fontSize: 30,
+                            fontWeight: 400,
+                        }}>Feed Back Form</p>
+                        <input type="text" value={name} className="inputs border border-success rounded-2 shadow-sm" placeholder="Name" onChange={(e) => { setName(e.target.value) }} />
+                        <input type="email" onChange={(e) => { setMail(e.target.value) }} value={mail} className="inputs border border-success rounded-2 shadow-sm" placeholder="Email Address" />
+                        <input type="text" value={subject} className="inputs border border-success rounded-2 shadow-sm" placeholder="Subject" onChange={(e) => { setSubject(e.target.value) }} />
+                        <textarea value={message} onChange={(e) => setMessage(e.target.value)}className="inputs border border-success rounded-2 shadow-sm" placeholder="Message" aria-label="With textarea"></textarea>
+                        <div style={{ margin: 10 }}>
+                            <button onClick={sendmail} class="btn btn-outline-primary">Send FeedBack Mail</button>
+                        </div>
+                   </div>
                 </div>) : (<div
                     style={{
                         width: '100%',
