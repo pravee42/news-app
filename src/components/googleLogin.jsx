@@ -24,6 +24,8 @@ export default function GoogleLoginComponent() {
     }
 
     const responseGoogle = async (e) => {
+        await setName(e.profileObj.name)
+        await setMail(e.profileObj.email)
         setLoading(true);
         let UserData = {
             email: e.profileObj.email,
@@ -31,11 +33,12 @@ export default function GoogleLoginComponent() {
             password: e.profileObj.googleId,
             avatar: e.profileObj.imageUrl
         }
-        await axios.post("https://newsapi-abipravi.herokuapp.com/auth", UserData).then(res => { setLoading(false); alert("Sucessfully logged in as", name)}, err => alert("err",err))
-        console.log(e.profileObj.email)
-        console.log(e.profileObj.googleId)
-        console.log(e.profileObj.imageUrl)
-        console.log(e.profileObj.name)
+        await axios.post("https://newsapi-abipravi.herokuapp.com/auth", UserData).then(res => { setLoading(false); alert(`Sucessfully logged in as: ${e.profileObj.name}`) },
+            (err => {
+                setLoading(false);
+                alert("err", err)
+        }
+        ))
     }
 
     return (
@@ -43,19 +46,19 @@ export default function GoogleLoginComponent() {
             <GoogleLogin clientId="692593559541-2rgin6kcfke1et55od12epm3tth3dp7a.apps.googleusercontent.com" onSuccess={responseGoogle}
                 onFailure={responseGoogle} />
             {
-                loading === false ? (<form onSubmit={sendmail}
+                loading === false ? (<div
                     style={{
-                        margin: 10, display: 'flex', flexDirection: 'column', height: '40vh', width: '50%', justifyContent: 'space-between'
+                        margin: 10, display: 'flex', flexDirection: 'column', height: '60vh', width: '50%', justifyContent: 'space-between'
                     }}
                 >
-                    <input type="text" className="inputs border border-success rounded-2 shadow-sm" placeholder="Name" onChange={(e) => { setName(e.target.value) }} />
-                    <input type="email" onChange={(e) => { setMail(e.target.value) }} className="inputs border border-success rounded-2 shadow-sm" placeholder="Email Address" />
-                    <input type="text" className="inputs border border-success rounded-2 shadow-sm" placeholder="Subject" onChange={(e) => { setSubject(e.target.value) }} />
-                    <textarea className="inputs border border-success rounded-2 shadow-sm" placeholder="Message" aria-label="With textarea"></textarea>
+                    <input type="text" value={name} className="inputs border border-success rounded-2 shadow-sm" placeholder="Name" onChange={(e) => { setName(e.target.value) }} />
+                    <input type="email" onChange={(e) => { setMail(e.target.value) }} value={mail} className="inputs border border-success rounded-2 shadow-sm" placeholder="Email Address" />
+                    <input type="text" value={subject} className="inputs border border-success rounded-2 shadow-sm" placeholder="Subject" onChange={(e) => { setSubject(e.target.value) }} />
+                    <textarea value={message} onChange={(e) => setMessage(e.target.value)}className="inputs border border-success rounded-2 shadow-sm" placeholder="Message" aria-label="With textarea"></textarea>
                     <div style={{ margin: 10 }}>
-                        <button type="submit" class="btn btn-outline-primary">Send FeedBack Mail</button>
+                        <button onClick={sendmail} class="btn btn-outline-primary">Send FeedBack Mail</button>
                     </div>
-                </form>) : (<div
+                </div>) : (<div
                     style={{
                         width: '100%',
                         height: '100%',
