@@ -16,7 +16,11 @@ export default function ViewBookmark() {
     return (
         <div>
             {news.map(data => <NewsCardComponent1 news={data.news} image={data.image} link={data.source} />)}
-            {news.length === 0 && <h3>No News Found</h3>}
+            {news.length === 0 && <div style={{
+                height: '100vh', width: '100vw', display: 'flex', justifyContent: 'center', alignItems: 'center'
+            }}>
+                <h4>No News Found</h4>
+            </div>}
         </div>
     )
 }
