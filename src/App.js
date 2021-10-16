@@ -10,6 +10,7 @@ import EducationalNews from './components/Educational';
 import SportsNewsComponent from './components/Sports';
 import SportsNewsLatestComponent from './components/SportsLatest';
 import BusinessNews from './components/business';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 import GoogleLoginComponent from './components/googleLogin';
 
 export default function App() {
@@ -41,6 +42,7 @@ export default function App() {
 
 	return (
 		<Router>
+			<MessengerCustomerChat pageId='105673224167318' appId='402215664792382' />
 			<div style={{ overflow: 'hidden', height: '100vh' }}>
 				<div
 					{...handlers}
