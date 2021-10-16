@@ -127,3 +127,9 @@
 		width: 10%;
 	}
 }
+
+.inputs {
+	outline: none;
+	padding: 5px;
+	cursor: default;
+}
