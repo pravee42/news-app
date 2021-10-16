@@ -15,7 +15,7 @@ export default function ViewBookmark() {
  
     return (
         <div>
-            {news.map(data => <NewsCardComponent1 news={data.news} image={data.image} link={data.source} />)}
+            {news.map(data => <NewsCardComponent1 news={data.news} image={data.image} link={data.source} bkid={data.id} callfunc = {getNews()} />)}
             {news.length === 0 && <div style={{
                 height: '100vh', width: '100vw', display: 'flex', justifyContent: 'center', alignItems: 'center'
             }}>

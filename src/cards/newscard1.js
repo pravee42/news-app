@@ -3,6 +3,14 @@ import axios from 'axios';
 import './style.css';
 
 export default function NewsCardComponent1(props) {
+	const _deletebookmark = async (id) => {
+		const url = `http://newsapi-abipravi.herokuapp.com/bookmark/delete/${id}`;
+		await axios.delete(url).then(
+			(res) => alert('bookmark Deleted'),
+			(err) => console.log(err),
+		);
+	};
+
 	return (
 		<>
 			<div className='newsCard border border-light shadow-sm p-3 mb-5 bg-body rounded '>
@@ -27,6 +35,11 @@ export default function NewsCardComponent1(props) {
 							target='_blank'>
 							Source
 						</a>
+						<button
+							onClick={() => _deletebookmark(props.bkid)}
+							className='btn btn-danger space'>
+							Delete Bookmark
+						</button>
 					</div>
 				</div>
 			</div>
