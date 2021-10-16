@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-	BrowserRouter as Router,
-	Switch,
-	Route,
-	Link,
-	Redirect,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import TechNews from './components/TechNews';
 import Menu from './svg/menu.svg';
@@ -18,6 +12,8 @@ import SportsNewsLatestComponent from './components/SportsLatest';
 import BusinessNews from './components/business';
 import GoogleLoginComponent from './components/googleLogin';
 import GoogleAuth from './components/googleauth';
+import ViewBookmark from './components/viewbookmark';
+
 export default function App() {
 	const [open, setOpen] = useState(false);
 	const [url, setUrl] = useState(window.location.pathname);
@@ -114,6 +110,11 @@ export default function App() {
 															Feed Back Form
 														</Link>
 													</li>
+													<li>
+														<Link class='btn btn-primary' to='/bookmark'>
+															My Bookmarks
+														</Link>
+													</li>
 												</ul>
 											</div>
 										</div>
@@ -156,6 +157,9 @@ export default function App() {
 										</Route>
 										<Route exact path='/contact'>
 											<GoogleLoginComponent />
+										</Route>
+										<Route exact path='/bookmark'>
+											<ViewBookmark />
 										</Route>
 										<Route exact path='/'>
 											<Home />

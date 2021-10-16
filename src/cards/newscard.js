@@ -1,7 +1,23 @@
 import React from 'react';
+import axios from 'axios';
 import './style.css';
 
 export default function NewsCardComponent(props) {
+	const add_to_bookmark = async (news, source, image) => {
+		let email = localStorage.getItem('user');
+		let responseData = await {
+			email,
+			news,
+			source,
+			image,
+		};
+		await axios
+			.post('https://newsapi-abipravi.herokuapp.com/bookmark', responseData)
+			.then((res) => {
+				alert('Added to Bookmard');
+			});
+	};
+
 	return (
 		<>
 			<div className='newsCard border border-light shadow-sm p-3 mb-5 bg-body rounded '>
@@ -26,7 +42,11 @@ export default function NewsCardComponent(props) {
 							target='_blank'>
 							Source
 						</a>
-						<button className='btn btn-outline-primary space'>
+						<button
+							onClick={() =>
+								add_to_bookmark(props.news, props.link, props.image)
+							}
+							className='btn btn-outline-primary space'>
 							Add to Bookmark
 						</button>
 					</div>
