@@ -22,6 +22,8 @@ export default function GoogleAuth() {
             }
             ))
         localStorage.setItem("user", e.profileObj.email)
+        localStorage.setItem("avatar", e.profileObj.imageUrl)
+        localStorage.setItem("name", e.profileObj.name)
     }
 
     return (

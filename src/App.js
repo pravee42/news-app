@@ -13,6 +13,8 @@ import BusinessNews from './components/business';
 import GoogleLoginComponent from './components/googleLogin';
 import GoogleAuth from './components/googleauth';
 import ViewBookmark from './components/viewbookmark';
+import Economy from './components/economy';
+import Market from './components/market';
 
 export default function App() {
 	const [open, setOpen] = useState(false);
@@ -60,12 +62,26 @@ export default function App() {
 								onClick={setopen}
 								className={open === true ? 'open' : 'closed'}>
 								{open === false ? (
-									<img
-										src={Menu}
-										onClick={setopen}
-										alt='menu icon'
-										style={{ width: '70%' }}
-									/>
+									<div
+										style={{
+											padding: 3,
+											margin: 10,
+											position: 'absolute',
+											border: '1px solid blue',
+											borderRadius: 100,
+										}}>
+										<img
+											src={localStorage.getItem('avatar')}
+											onClick={setopen}
+											lazy
+											alt='avatar'
+											style={{
+												width: '70px',
+												height: '70px',
+												borderRadius: 100,
+											}}
+										/>
+									</div>
 								) : (
 									<div></div>
 								)}
@@ -103,6 +119,16 @@ export default function App() {
 													<li>
 														<Link class='btn btn-primary' to='/business'>
 															Business News
+														</Link>
+													</li>
+													<li>
+														<Link class='btn btn-primary' to='/economy'>
+															Economy
+														</Link>
+													</li>
+													<li>
+														<Link class='btn btn-primary' to='/market'>
+															Share Market
 														</Link>
 													</li>
 													<li>
@@ -160,6 +186,12 @@ export default function App() {
 										</Route>
 										<Route exact path='/bookmark'>
 											<ViewBookmark />
+										</Route>
+										<Route exact path='/economy'>
+											<Economy />
+										</Route>
+										<Route exact path='/market'>
+											<Market />
 										</Route>
 										<Route exact path='/'>
 											<Home />
