@@ -17,7 +17,7 @@ export default function GoogleAuth() {
         await axios.post("https://newsapi-abipravi.herokuapp.com/auth", UserData).then(res => { setLoading(false); window.location.reload(); },
             (err => {
                 setLoading(false);
-                alert("err", err)
+                alert("error when login please try again", err)
             }
             ))
         localStorage.setItem("user", e.profileObj.email)
