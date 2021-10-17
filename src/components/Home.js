@@ -10,7 +10,6 @@ export default function Home() {
 			.get('https://newsapi-abipravi.herokuapp.com/news')
 			.then((res) => setNews(res.data))
 			.then((err) => console.error(err));
-		console.log(news);
 	};
 
 	useEffect(() => {

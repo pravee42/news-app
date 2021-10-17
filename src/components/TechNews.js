@@ -10,12 +10,11 @@ export default function TechNews() {
 			.get('https://newsapi-abipravi.herokuapp.com/tech')
 			.then((res) => setNews(res.data))
 			.then((err) => console.error(err));
-		console.log(news);
 	};
 
 	useEffect(() => {
 		getNews();
-	}, [1]);
+	}, []);
 
 	return (
 		<div>

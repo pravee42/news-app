@@ -15,7 +15,7 @@ export default function SportsNewsLatestComponent() {
 
 	useEffect(() => {
 		getNews();
-	}, [1]);
+	}, []);
 
 	return (
 		<div>

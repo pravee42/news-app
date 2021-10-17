@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import { GoogleLogin } from 'react-google-login'
-import {BrowserRouter as Router, Redirect} from 'react-router-dom'
 import axios from 'axios';
 
 export default function GoogleAuth() {

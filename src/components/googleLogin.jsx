@@ -5,8 +5,8 @@ import './../styles/App.css';
 export default function GoogleLoginComponent() {
     const [subject, setSubject] = useState("");
     const [message, setMessage] = useState("");
-    const [name, setName] = useState("");
-    const [mail, setMail] = useState("");
+    const [name, setName] = useState(localStorage.getItem("name"));
+    const [mail, setMail] = useState(localStorage.getItem("user"));
     const [loading, setLoading] = useState(false)
 
 
@@ -22,24 +22,6 @@ export default function GoogleLoginComponent() {
         await emailjs.send(process.env.REACT_APP_1SERVICE_ID, process.env.REACT_APP_1TEMPLATE_ID, value, process.env.REACT_APP_Email_Clint_ID).then(res => { setLoading(false); alert("Feedback Sent") }, err => { alert("error sending feedback") })
     }
 
-    const responseGoogle = async (e) => {
-        await setName(e.profileObj.name)
-        await setMail(e.profileObj.email)
-        setLoading(true);
-        let UserData = {
-            email: e.profileObj.email,
-            name: e.profileObj.name,
-            password: e.profileObj.googleId,
-            avatar: e.profileObj.imageUrl
-        }
-        await axios.post("https://newsapi-abipravi.herokuapp.com/auth", UserData).then(res => { setLoading(false); alert(`Sucessfully logged in as: ${e.profileObj.name}`) },
-            (err => {
-                setLoading(false);
-                alert("err", err)
-        }
-            ))
-        await localStorage.setItem("user", e.profileObj.email)
-    }
 
     return (
         <div >

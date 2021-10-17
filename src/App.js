@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Home from './components/Home';
 import TechNews from './components/TechNews';
-import Menu from './svg/menu.svg';
 import Close from './svg/x.svg';
 import { useSwipeable } from 'react-swipeable';
 import './styles/App.css';

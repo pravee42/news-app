@@ -10,7 +10,6 @@ export default function Economy() {
 			.get('https://newsapi-abipravi.herokuapp.com/business/economy')
 			.then((res) => setNews(res.data))
 			.then((err) => console.error(err));
-		console.log(news);
 	};
 
 	useEffect(() => {

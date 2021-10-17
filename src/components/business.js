@@ -10,7 +10,6 @@ export default function BusinessNews() {
 			.get('https://newsapi-abipravi.herokuapp.com/business')
 			.then((res) => setNews(res.data))
 			.then((err) => console.error(err));
-		console.log(news);
 	};
 
 	useEffect(() => {
