@@ -4,7 +4,7 @@ import './style.css';
 
 export default function NewsCardComponent1(props) {
 	const _deletebookmark = async (id) => {
-		const url = `http://newsapi-abipravi.herokuapp.com/bookmark/delete/${id}`;
+		const url = `https://newsapi-abipravi.herokuapp.com/bookmark/delete/${id}`;
 		await axios.delete(url).then(
 			(res) => alert('bookmark Deleted'),
 			(err) => console.log(err),
