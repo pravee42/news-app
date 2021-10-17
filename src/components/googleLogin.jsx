@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import axios from 'axios';
 import emailjs from 'emailjs-com';
 import './../styles/App.css';
 export default function GoogleLoginComponent() {

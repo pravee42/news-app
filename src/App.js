@@ -14,6 +14,7 @@ import GoogleAuth from './components/googleauth';
 import ViewBookmark from './components/viewbookmark';
 import Economy from './components/economy';
 import Market from './components/market';
+import SearchNews from './components/search';
 
 export default function App() {
 	const [open, setOpen] = useState(false);
@@ -102,6 +103,11 @@ export default function App() {
 																{localStorage.getItem('name')}
 															</span>
 														</p>
+													</li>
+													<li>
+														<Link class='btn btn-primary' to='/search'>
+															Search News
+														</Link>
 													</li>
 													<li>
 														<Link class='btn btn-primary' to='/home'>
@@ -199,6 +205,9 @@ export default function App() {
 										</Route>
 										<Route exact path='/market'>
 											<Market />
+										</Route>
+										<Route exact path='/search'>
+											<SearchNews />
 										</Route>
 										<Route exact path='/'>
 											<Home />
