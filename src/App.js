@@ -97,6 +97,14 @@ export default function App() {
 											<div>
 												<ul className='list-group'>
 													<li>
+														<p class='btn btn-primary'>
+															Welcome &nbsp;Back &nbsp;
+															<span className='h6'>
+																{localStorage.getItem('name')}
+															</span>
+														</p>
+													</li>
+													<li>
 														<Link class='btn btn-primary' to='/home'>
 															Home
 														</Link>
