@@ -2,4 +2,4 @@ This Is react js application build for get the news for the uer with google auth
 
 
 demo link:
-newsapi-abipravi.netlify.app
+newsapp-abipravi.netlify.app
