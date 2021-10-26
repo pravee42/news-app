@@ -49,6 +49,7 @@
 	flex-wrap: wrap;
 	height: auto;
 	justify-content: space-evenly;
+	list-style-type:none;
 }
 
 .list-group li {
