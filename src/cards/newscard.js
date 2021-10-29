@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 import './style.css';
-import {toastContainer, toast} from 'react-toastify';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function NewsCardComponent(props) {
 	const add_to_bookmark = async (news, source, image) => {
@@ -15,7 +16,7 @@ export default function NewsCardComponent(props) {
 		await axios
 			.post('https://newsapi-abipravi.herokuapp.com/bookmark', responseData)
 			.then((res) => {
-				alert('Added to Bookmard');
+				toast.success('Added to Bookmard');
 			});
 	};
 

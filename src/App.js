@@ -15,6 +15,8 @@ import ViewBookmark from './components/viewbookmark';
 import Economy from './components/economy';
 import Market from './components/market';
 import SearchNews from './components/search';
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
 	const [open, setOpen] = useState(false);
@@ -52,6 +54,7 @@ export default function App() {
 	return (
 		<Router>
 			<div>
+			<ToastContainer/>
 				{user ? (
 					<div style={{ overflow: 'hidden', height: '100vh' }}>
 						<div
