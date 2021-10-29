@@ -16,7 +16,7 @@ export default function NewsCardComponent(props) {
 		await axios
 			.post('https://newsapi-abipravi.herokuapp.com/bookmark', responseData)
 			.then((res) => {
-				toast.success('Added to Bookmard');
+				toast.success('Added to Bookmarked');
 			});
 	};
 
