@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import './style.css';
+import {toastContainer, toast} from 'react-toastify';
 
 export default function NewsCardComponent(props) {
 	const add_to_bookmark = async (news, source, image) => {
