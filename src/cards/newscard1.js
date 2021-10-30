@@ -1,12 +1,14 @@
 import React from 'react';
 import axios from 'axios';
 import './style.css';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function NewsCardComponent1(props) {
 	const _deletebookmark = async (id) => {
 		const url = `https://newsapi-abipravi.herokuapp.com/bookmark/delete/${id}`;
 		await axios.delete(url).then(
-			(res) => alert('bookmark Deleted'),
+			(res) => toast.error('Bookmark Deleted'),
 			(err) => console.log(err),
 		);
 	};
