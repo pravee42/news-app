@@ -23,7 +23,10 @@
     "google-auth-library": "^7.10.1",
     "googleapis-common": "^5.0.5",
     "react": "^17.0.2",
+<<<<<<< HEAD
     "react-device-detect": "^2.1.2",
+=======
+>>>>>>> 1edf03c780097adfa91471319a7b5d24fe7ee86a
     "react-dom": "^17.0.2",
     "react-gmail": "^1.0.1",
     "react-google-login": "^5.2.2",
@@ -31,6 +34,10 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-swipeable": "^6.2.0",
+<<<<<<< HEAD
+=======
+    "react-toastify": "^8.0.3",
+>>>>>>> 1edf03c780097adfa91471319a7b5d24fe7ee86a
     "styled-components": "^5.3.1",
     "web-vitals": "^1.1.2"
   },

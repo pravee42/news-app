@@ -1,12 +1,21 @@
 import React from 'react';
 import axios from 'axios';
 import './style.css';
+<<<<<<< HEAD
+=======
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+>>>>>>> 1edf03c780097adfa91471319a7b5d24fe7ee86a
 
 export default function NewsCardComponent1(props) {
 	const _deletebookmark = async (id) => {
 		const url = `https://newsapi-abipravi.herokuapp.com/bookmark/delete/${id}`;
 		await axios.delete(url).then(
+<<<<<<< HEAD
 			(res) => alert('bookmark Deleted'),
+=======
+			(res) => toast.error('Bookmark Deleted'),
+>>>>>>> 1edf03c780097adfa91471319a7b5d24fe7ee86a
 			(err) => console.log(err),
 		);
 	};
