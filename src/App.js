@@ -57,6 +57,7 @@ export default function App() {
 			<BrowserView>
 				<Router>
 					<div>
+						<ToastContainer />
 						{user ? (
 							<div style={{ overflow: 'hidden', height: '100vh' }}>
 								<div
