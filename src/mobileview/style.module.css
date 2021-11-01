@@ -1,10 +1,12 @@
 .body_dark {
 	background-color: #262b08;
 	height: 100vh;
+	overflow: hidden;
 }
 
 .body_light {
 	background-color: #ffffff;
+	overflow: hidden;
 	height: 100vh;
 }
 .avatar_light {
@@ -62,10 +64,18 @@
 
 .menu_dark {
 	height: 100vh;
+	animation: animate1 0.5s;
+	transition: all 1s;
+	animation-timing-function: cubic-bezier(0.74, 0.07, 0.58, 1);
+	animation-fill-mode: both;
 }
 
 .menu_light {
 	height: 100vh;
+	animation: animate1 0.5s;
+	transition: all 1s;
+	animation-timing-function: cubic-bezier(0.74, 0.07, 0.58, 1);
+	animation-fill-mode: both;
 }
 
 .menu_items {
@@ -80,6 +90,15 @@
 	align-items: center;
 }
 
+@keyframes animate1 {
+	from {
+		transform: translateX(100%);
+	}
+	to {
+		transform: translateX(0);
+	}
+}
+
 .menu_items_dark {
 	display: flex;
 	flex-direction: column;
@@ -87,4 +106,26 @@
 	height: 100%;
 	align-items: center;
 	color: whitesmoke;
+}
+
+.menu_items_dark .menu_items {
+	color: whitesmoke;
+	text-decoration: none;
+	font-size: 25px;
+}
+
+.menu_items_light .menu_items {
+	color: #2abcd5;
+	text-decoration: none;
+	font-size: 25px;
+}
+
+.text_white {
+	color: white;
+}
+
+.backimage {
+	position: relative;
+	float: left;
+	margin: 20px -40px 20px 20px;
 }

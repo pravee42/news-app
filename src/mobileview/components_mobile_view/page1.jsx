@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import styles from '../style.module.css'
 import lightIcon from '../icons/light.png'
 import darkIcon from '../icons/dark.png'
+import backicon from '../icons/back_icon.png'
 
 
 export const Page1component = () => {
@@ -59,17 +60,54 @@ export const Page1component = () => {
                 </div>
                 ) :
                     <div onClick={toogleMenu} className={theme === 'dark' ? styles.menu_dark : styles.menu_light}>
+                        <img className={styles.backimage} src={backicon} lazy />
                         <div className={theme === 'dark' ? styles.menu_items_dark : styles.menu_items_light}>
-                            <p className={styles.menu_items}>Profile</p>
-                            <p className={styles.menu_items}>Sports News</p>
-                            <p className={styles.menu_items}>Medical News</p>
-                            <p className={styles.menu_items}>Cryptocurrency</p>
-                            <p className={styles.menu_items}>Chat / Contact us</p>
-                            <p className={styles.menu_items}>Devloper News</p>
-                            <p className={styles.menu_items}>Stock Market</p>
+                            <Link className={styles.menu_items} to="/profile">Profile</Link>
+                            <Link className={styles.menu_items} to="/sports"> Sports News</Link>
+                            <Link className={styles.menu_items} to="/medical"> Medical News</Link>
+                            <Link className={styles.menu_items} to="/crypto"> Cryptocurrency</Link>
+                            <Link className={styles.menu_items} to="/chat"> Chat / Contact us</Link>
+                            <Link className={styles.menu_items} to="/developernews"> Devloper News</Link>
+                            <Link className={styles.menu_items} to="/stockmarket"> Stock Market</Link>
                         </div>
+                      
                     </div>
                 }
+                <div className={theme === 'light' ? styles.routing_body_light : styles.routing_body_dark}>
+                    <Switch>
+                        <Route exact path="/profile">
+                            <p>Profile</p>
+                        </Route>
+                        <Route exact path="/sports">
+                            <p>sports</p>
+                        </Route>
+                        <Route exact path="/chat">
+                            <p>chat</p>
+                        </Route>
+                        <Route exact path="/medical">
+                            <p>medical</p>
+                        </Route>
+                        <Route exact path="/crypto">
+                            <p>crypto</p>
+                        </Route>
+                        <Route exact path="/devlopernews">
+                            <p>devlopernews</p>
+                        </Route>
+                        <Route exact path="/stockmarket">
+                            <p>stockmarket</p>
+                        </Route>
+                        <Route exact path="/home">
+                            <p>home</p>
+                        </Route>
+                        <Route exact path="/tech">
+                            <p>tech</p>
+                        </Route>
+                        <Route exact path="/business">
+                            <p>business</p>
+                        </Route>
+
+                    </Switch>
+                </div>
             </div>
         </Router>
     )
