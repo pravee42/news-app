@@ -49,10 +49,7 @@
 	flex-wrap: wrap;
 	height: auto;
 	justify-content: space-evenly;
-<<<<<<< HEAD
-=======
 	list-style-type:none;
->>>>>>> 1edf03c780097adfa91471319a7b5d24fe7ee86a
 }
 
 .list-group li {
