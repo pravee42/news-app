@@ -5,10 +5,6 @@ import axios from 'axios';
 export default function GoogleAuth() {
     const [loading, setLoading] = useState(false)
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 1edf03c780097adfa91471319a7b5d24fe7ee86a
     const responseGoogle = async (e) => {
         setLoading(true);
         let UserData = {
