@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { GoogleLogin } from 'react-google-login'
+import { GoogleLogin, uxMode } from 'react-google-login'
 import axios from 'axios';
 
 export default function GoogleAuth() {
@@ -37,6 +37,7 @@ export default function GoogleAuth() {
                         margin: 10
                     }}>You Have Not Logged In please login with your google account here</h4>
                         <GoogleLogin clientId="692593559541-2rgin6kcfke1et55od12epm3tth3dp7a.apps.googleusercontent.com" onSuccess={responseGoogle}
+                        uxMode="redirect" theme="dark" icon="false"
                             onFailure={responseGoogle} />
                     </div>
                 ) : (<div

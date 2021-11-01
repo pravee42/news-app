@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { GoogleLogin } from 'react-google-login'
+import {toast} from 'react-toastify';
 import axios from 'axios';
 
 export default function GoogleAuth() {
@@ -13,10 +14,10 @@ export default function GoogleAuth() {
             password: e.profileObj.googleId,
             avatar: e.profileObj.imageUrl
         }
-        await axios.post("https://newsapi-abipravi.herokuapp.com/auth", UserData).then(res => { setLoading(false); window.location.reload(); },
+        await axios.post("https://newsapi-abipravi.herokuapp.com/auth", UserData).then(res => { setLoading(false); window.location.reload();  toast.success('User Created Successfully');},
             (err => {
                 setLoading(false);
-                alert("error when login please try again", err)
+                toast.success('User Created Successfully');
             }
             ))
         localStorage.setItem("user", e.profileObj.email)

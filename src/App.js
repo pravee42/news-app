@@ -16,7 +16,7 @@ import ViewBookmark from './components/viewbookmark';
 import Economy from './components/economy';
 import Market from './components/market';
 import SearchNews from './components/search';
-import {ToastContainer} from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import HomePageMobileComponent from './mobileview/home';
 export default function App() {
