@@ -1,12 +1,12 @@
 .body_dark {
 	background-color: #262b08;
 	height: 100vh;
-	overflow: hidden;
+	/* overflow-x: hidden; */
 }
 
 .body_light {
 	background-color: #ffffff;
-	overflow: hidden;
+	/* overflow-x: hidden; */
 	height: 100vh;
 }
 .avatar_light {

@@ -8,6 +8,10 @@
 	width: 100vw;
 }
 
+.cursor_custom {
+	cursor: url('../cursor.cur');
+}
+
 .url {
 	width: 100vw;
 	text-align: center;
@@ -49,7 +53,7 @@
 	flex-wrap: wrap;
 	height: auto;
 	justify-content: space-evenly;
-	list-style-type:none;
+	list-style-type: none;
 }
 
 .list-group li {

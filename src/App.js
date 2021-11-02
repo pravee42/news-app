@@ -53,7 +53,7 @@ export default function App() {
 	}, [window.location.pathname]);
 
 	return (
-		<div>
+		<div className='cursor_custom'>
 			<BrowserView>
 				<Router>
 					<div>

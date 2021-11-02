@@ -4,6 +4,8 @@ import styles from '../style.module.css'
 import lightIcon from '../icons/light.png'
 import darkIcon from '../icons/dark.png'
 import backicon from '../icons/back_icon.png'
+import Home from './pages/Home';
+import BottomNavbar from './botton_navbar';
 
 
 export const Page1component = () => {
@@ -96,8 +98,8 @@ export const Page1component = () => {
                         <Route exact path="/stockmarket">
                             <p>stockmarket</p>
                         </Route>
-                        <Route exact path="/home">
-                            <p>home</p>
+                        <Route exact path="/">
+                            <Home />
                         </Route>
                         <Route exact path="/tech">
                             <p>tech</p>
@@ -105,9 +107,13 @@ export const Page1component = () => {
                         <Route exact path="/business">
                             <p>business</p>
                         </Route>
-
                     </Switch>
                 </div>
+                {menu === false && (
+                    <div style={{position: 'absolute', bottom: 0}}>
+                        <BottomNavbar />
+                    </div>
+                )}
             </div>
         </Router>
     )
