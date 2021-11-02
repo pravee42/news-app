@@ -18,7 +18,7 @@ export default function GoogleLoginComponent() {
             gmailid: mail,
         }
         setLoading(true)
-        await emailjs.send(process.env.REACT_APP_1SERVICE_ID, process.env.REACT_APP_1TEMPLATE_ID, value, process.env.REACT_APP_Email_Clint_ID).then(res => { setLoading(false); alert("Feedback Sent") }, err => { alert("error sending feedback") })
+        await emailjs.send(import.meta.env.VITE_1SERVICE_ID, import.meta.env.VITE_1TEMPLATE_ID, value, import.meta.env.VITE_Email_Clint_ID).then(res => { setLoading(false); alert("Feedback Sent") }, err => { alert("error sending feedback") })
     }
 
 

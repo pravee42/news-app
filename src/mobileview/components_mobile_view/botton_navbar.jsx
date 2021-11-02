@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 import styles from './styles_mobile/stylenavbar.module.css'
 import bookmark from '../icons/bookmark.png'
 import business from '../icons/business.png'
@@ -21,14 +22,19 @@ export default function BottomNavbar() {
     }, [localStorage.getItem("theme")])
 
     return (
+        <Router>
         <div className={theme === "light" ? styles.navbar_light : styles.navbar_dark}>
             {theme === "dark" ? (
                 <>
-                    <img src={education} lazy />
-                    <img src={tech} lazy />
+                    <Link className={styles.image_school} to="/education"></Link>
+                    <Link className={styles.image_tech} to="/tech"></Link>
+                    <Link className={styles.image_home} to="/"></Link>
+                    <Link className={styles.image_business} to="/business"></Link>
+                    <Link className={styles.image_bookmark} to="/bookmark"></Link>
+                    {/* <img src={tech} lazy />
                     <img src={home} lazy />
                     <img src={business} lazy />
-                    <img src={bookmark} lazy />
+                    <img src={bookmark} lazy /> */}
                 </>
             ) : (
                     <>
@@ -40,5 +46,6 @@ export default function BottomNavbar() {
                     </>
             )}
         </div>
+        </Router>
     )
 }

@@ -1,6 +1,5 @@
 .navbar_dark {
 	background-color: white;
-	border-radius: 30px 30px 0 0;
 	/* box-shadow: 10px 10px black; */
 	height: 70px;
 	width: 100vw;
@@ -11,8 +10,7 @@
 
 .navbar_light {
 	background-color: rgba(42, 188, 213, 0.74);
-	border-radius: 30px 30px 0 0;
-	/* box-shadow: 10px 10px black; */
+	box-shadow: -1px 5px 20px 9px black;
 	height: 70px;
 	width: 100vw;
 	display: flex;
@@ -20,7 +18,33 @@
 	align-items: center;
 }
 
-.navbar img {
+.image_home {
 	height: 35px;
 	width: 35px;
+	background-image: url('../../icons/home.png');
+	background-repeat: no-repeat;
+}
+.image_tech {
+	height: 35px;
+	width: 35px;
+	background-image: url('../../icons/tech.png');
+	background-repeat: no-repeat;
+}
+.image_business {
+	height: 35px;
+	width: 35px;
+	background-image: url('../../icons/business.png');
+	background-repeat: no-repeat;
+}
+.image_bookmark {
+	height: 35px;
+	width: 35px;
+	background-image: url('../../icons/bookmark.png');
+	background-repeat: no-repeat;
+}
+.image_school {
+	height: 35px;
+	width: 35px;
+	background-image: url('../../icons/education.png');
+	background-repeat: no-repeat;
 }

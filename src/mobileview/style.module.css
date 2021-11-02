@@ -1,6 +1,7 @@
 .body_dark {
 	background-color: #262b08;
 	height: 100vh;
+	color: white;
 	/* overflow-x: hidden; */
 }
 
@@ -9,6 +10,17 @@
 	/* overflow-x: hidden; */
 	height: 100vh;
 }
+
+.routing_body_light {
+	height: 90%;
+	overflow: hidden;
+}
+
+.routing_body_dark {
+	height: 90%;
+	overflow: hidden;
+}
+
 .avatar_light {
 	border-radius: 100%;
 	border: 2px solid #bcd52a;
@@ -39,12 +51,29 @@
 	height: 99%;
 }
 
-.header {
+.header_dark {
 	padding: 2px;
 	display: flex;
 	justify-content: space-evenly;
 	flex-direction: row;
 	align-items: center;
+	position: fixed;
+	height: 100px;
+	top: 0;
+	background-color: #262b08;
+	width: 100%;
+	font-family: 'Bahnschrift';
+}
+.header_light {
+	padding: 2px;
+	display: flex;
+	justify-content: space-evenly;
+	flex-direction: row;
+	align-items: center;
+	position: fixed;
+	height: 100px;
+	top: 0;
+	background-color: white;
 	width: 100%;
 	font-family: 'Bahnschrift';
 }
@@ -68,11 +97,15 @@
 	transition: all 1s;
 	animation-timing-function: cubic-bezier(0.74, 0.07, 0.58, 1);
 	animation-fill-mode: both;
+	position: fixed;
 }
 
 .menu_light {
 	height: 100vh;
+	position: fixed;
 	animation: animate1 0.5s;
+	background-color: #ffffff;
+	width: 100%;
 	transition: all 1s;
 	animation-timing-function: cubic-bezier(0.74, 0.07, 0.58, 1);
 	animation-fill-mode: both;

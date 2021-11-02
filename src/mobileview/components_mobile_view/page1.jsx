@@ -45,7 +45,7 @@ export const Page1component = () => {
         <Router>
             <div className={theme === "light" ? styles.body_light : styles.body_dark}>
                 {menu === false ? (
-                <div className={styles.header}>
+                <div className={theme === "light" ? styles.header_light : styles.header_dark}>
                     <div onClick={toogleMenu} className={theme === "light" ? styles.avatar_light : styles.avatar_dark}>
                         <img src={localStorage.getItem('avatar')} className={styles.image_avatar} lazy />
                     </div>
@@ -76,7 +76,8 @@ export const Page1component = () => {
                     </div>
                 }
                 <div className={theme === 'light' ? styles.routing_body_light : styles.routing_body_dark}>
-                    <Switch>
+                    {menu === false ? (
+                        <Switch>
                         <Route exact path="/profile">
                             <p>Profile</p>
                         </Route>
@@ -108,9 +109,10 @@ export const Page1component = () => {
                             <p>business</p>
                         </Route>
                     </Switch>
+                    ) : (<div></div>)}
                 </div>
                 {menu === false && (
-                    <div style={{position: 'absolute', bottom: 0}}>
+                    <div style={{position: 'fixed', bottom: 0}}>
                         <BottomNavbar />
                     </div>
                 )}
