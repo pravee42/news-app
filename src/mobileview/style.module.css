@@ -1,24 +1,28 @@
 .body_dark {
-	background-color: #262b08;
+	background-color: #050100;
 	height: 100vh;
 	color: white;
-	/* overflow-x: hidden; */
+	overflow-x: hidden;
 }
 
 .body_light {
 	background-color: #ffffff;
-	/* overflow-x: hidden; */
+	overflow-x: hidden;
 	height: 100vh;
 }
 
 .routing_body_light {
-	height: 90%;
-	overflow: hidden;
+	height: calc(100% - 100px);
+	margin: 10px;
+	overflow-x: hidden;
+	overflow-y: hidden;
 }
 
 .routing_body_dark {
-	height: 90%;
-	overflow: hidden;
+	height: calc(100% - 100px);
+	margin-top: 10px;
+	overflow-y: hidden;
+	overflow-x: hidden;
 }
 
 .avatar_light {
@@ -60,7 +64,7 @@
 	position: fixed;
 	height: 100px;
 	top: 0;
-	background-color: #262b08;
+	background-color: #050100;
 	width: 100%;
 	font-family: 'Bahnschrift';
 }
@@ -95,6 +99,7 @@
 	height: 100vh;
 	animation: animate1 0.5s;
 	transition: all 1s;
+	width: 100%;
 	animation-timing-function: cubic-bezier(0.74, 0.07, 0.58, 1);
 	animation-fill-mode: both;
 	position: fixed;

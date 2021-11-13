@@ -229,9 +229,9 @@ export default function App() {
 					</div>
 				</Router>
 			</BrowserView>
-			<MobileView>
+			{/* <MobileView>
 				<HomePageMobileComponent />
-			</MobileView>
+			</MobileView> */}
 		</div>
 	);
 }
