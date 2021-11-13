@@ -54,7 +54,7 @@ export default function App() {
 
 	return (
 		<div className='cursor_custom'>
-			<BrowserView>
+			{/* <BrowserView> */}
 				<Router>
 					<div>
 						<ToastContainer />
@@ -228,7 +228,7 @@ export default function App() {
 						)}
 					</div>
 				</Router>
-			</BrowserView>
+			{/* </BrowserView> */}
 			{/* <MobileView>
 				<HomePageMobileComponent />
 			</MobileView> */}
