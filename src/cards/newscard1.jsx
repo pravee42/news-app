@@ -8,7 +8,10 @@ export default function NewsCardComponent1(props) {
 	const _deletebookmark = async (id) => {
 		const url = `https://newsapi-abipravi.herokuapp.com/bookmark/delete/${id}`;
 		await axios.delete(url).then(
-			(res) => toast.error('Bookmark Deleted'),
+			(res) => {
+				window.location.reload()
+				toast.error('Bookmark Deleted');
+			},
 			(err) => console.log(err),
 		);
 	};

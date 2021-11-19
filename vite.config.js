@@ -12,8 +12,8 @@ export default defineConfig({
 	},
 	define: {
 		'process.env.VITE_Email_Clint_ID': `"${process.env.VITE_Email_Clint_ID}"`,
-		'process.env.VITE_1SERVICE_ID': `"${process.env.VITE_Email_Clint_ID}"`,
-		'process.env.VITE_1TEMPLATE_ID': `"${process.env.VITE_Email_Clint_ID}"`,
+		'process.env.VITE_1SERVICE_ID': `"${process.env.VITE_1SERVICE_ID}"`,
+		'process.env.VITE_1TEMPLATE_ID': `"${process.env.VITE_1TEMPLATE_ID}"`,
 		'process.env.NODE_ENV': `"${'development'}"`,
 	},
 	plugins: [reactRefresh(), svgr()],

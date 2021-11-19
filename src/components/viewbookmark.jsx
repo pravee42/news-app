@@ -4,23 +4,36 @@ import axios from 'axios';
 
 
 export default function ViewBookmark() {
-    const [news, setNews] = useState([]);
-    const url = `https://newsapi-abipravi.herokuapp.com/bookmark/get/${localStorage.getItem('user')}`
+	const [news, setNews] = useState([]);
+	const [loading, setLoading] = useState(false);
+
+    const url = `http://newsapi-abipravi.herokuapp.com/bookmark/get/${localStorage.getItem('user')}`
 
     const getNews = async () => {
-        await axios.get(url).then(res => setNews(res.data), err => setNews(""))
-    }
+		setLoading(true);
+		await axios.get(url).then(res => setNews(res.data), err => console.log("error", err))
+		setLoading(false)
+	}
 
-    useEffect(() => {getNews()},[])
+	useEffect(async () => {
+		await getNews()
+	},[])
  
     return (
-        <div>
-            {news.map(data => <NewsCardComponent1 news={data.news} image={data.image} link={data.source} bkid={data.id} callfunc = {getNews()} />)}
-            {news.length === 0 && <div style={{
-                height: '100vh', width: '100vw', display: 'flex', justifyContent: 'center', alignItems: 'center'
-            }}>
-                <h4>No News Found</h4>
-            </div>}
+		<div>
+		{!loading ? 
+			news.length !== 0 ? news.map(data => <NewsCardComponent1 news={data.news} image={data.image} link={data.source} bkid={data.id} reload={getNews}/>) : (
+				<div style={{height: '100vh', width: '100vw', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+				    <h4>No Bookmarks Added</h4>
+				</div>
+			) : (
+				<div style={{width: '100%',height: '100%',display: 'flex',justifyContent: 'center',padding: '100px',}}>
+					<div class='spinner-border text-primary' role='status'>
+						<span class='visually-hidden'>Loading...</span>
+					</div>
+				</div>
+			)
+		}
         </div>
     )
 }

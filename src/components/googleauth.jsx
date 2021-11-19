@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import { GoogleLogin } from 'react-google-login'
 import axios from 'axios';
 
-export default function GoogleAuth() {
+export default function GoogleAuth(props) {
     const [loading, setLoading] = useState(false)
 
     const responseGoogle = async (e) => {
@@ -22,7 +22,14 @@ export default function GoogleAuth() {
         localStorage.setItem("user", e.profileObj.email)
         localStorage.setItem("avatar", e.profileObj.imageUrl)
         localStorage.setItem("name", e.profileObj.name)
-    }
+	}
+
+	const loginlater = async() => {
+		localStorage.setItem("user","loginlater")
+		localStorage.setItem("avatar", "https://e7.pngegg.com/pngimages/929/428/png-clipart-responsive-web-design-navigation-bar-computer-icons-menu-hamburger-button-menu-text-cafe.png");
+		localStorage.setItem("name", "User")
+		window.location.reload();
+	}
 
     return (
         <div>
@@ -36,9 +43,10 @@ export default function GoogleAuth() {
                     <h4 style={{
                         margin: 10
                     }}>You Have Not Logged In please login with your google account here</h4>
-                        <GoogleLogin clientId="692593559541-2rgin6kcfke1et55od12epm3tth3dp7a.apps.googleusercontent.com" onSuccess={responseGoogle}
+                        <GoogleLogin clientId={props.authid} onSuccess={responseGoogle}
                          theme="dark" icon="false"
-                            onFailure={responseGoogle} />
+					onFailure={responseGoogle} />
+					<button onClick={loginlater}>Continue Without Login</button>
                     </div>
                 ) : (<div
                     style={{

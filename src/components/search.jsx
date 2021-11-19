@@ -16,8 +16,8 @@ export default function SearchNews() {
     return (
         <div>
             <div className="searchtop" >
-                <input type="text" style={{height: '5vh'}} className="inputs" placeholder="search" onChange={(e) => setsearch(e.target.value)}  />
-                <button style={{height: '5vh'}} class="btn btn-primary" onClick={getNews}>Search</button>
+                <input type="text" className="search_textbox inputs" placeholder="search" onChange={(e) => setsearch(e.target.value)}  />
+                <button value="Search" class="btn btn-primary search_button" onClick={getNews}></button>
             </div>
 		<div style={{height: '80vh', overflowY: 'scroll'}}>
 			{news.length === 0 && (

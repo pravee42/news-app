@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route, Link, useLocation } from 'react-router-dom';
 import Home from './components/Home';
 import TechNews from './components/TechNews';
 import Close from './svg/x.svg';
@@ -18,7 +18,10 @@ import Market from './components/market';
 import SearchNews from './components/search';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { SharedNewsComponent } from './components/shared_news/SharedNews';
 import HomePageMobileComponent from './mobileview/home';
+import VITE_GAUTH_ID from './clintstore';
+
 export default function App() {
 	const [open, setOpen] = useState(false);
 	const [url, setUrl] = useState(window.location.pathname);
@@ -75,17 +78,15 @@ export default function App() {
 													position: 'absolute',
 													border: '1px solid blue',
 													borderRadius: 100,
-												}}>
+												}}
+												className="avatar_div"
+											>
 												<img
 													src={localStorage.getItem('avatar')}
 													onClick={setopen}
 													lazy
+													className="avatar_img"
 													alt='avatar'
-													style={{
-														width: '70px',
-														height: '70px',
-														borderRadius: 100,
-													}}
 												/>
 											</div>
 										) : (
@@ -182,8 +183,11 @@ export default function App() {
 												<Route exact path='/home'>
 													<Home />
 												</Route>
-												<Route path='/tech'>
+												<Route exact path='/tech'>
 													<TechNews />
+												</Route>
+												<Route path='/share'>
+													<SharedNewsComponent />
 												</Route>
 												<Route path='/education'>
 													<EducationalNews />
@@ -224,7 +228,8 @@ export default function App() {
 								</div>
 							</div>
 						) : (
-							<GoogleAuth />
+							<GoogleAuth authid={VITE_GAUTH_ID} />
+							
 						)}
 					</div>
 				</Router>
