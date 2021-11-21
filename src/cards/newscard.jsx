@@ -9,32 +9,33 @@ import axios from "axios";
 export default function NewsCardComponent(props) {
   const add_to_bookmark = async (news, source, image) => {
     let email = localStorage.getItem("user");
-    if (email === null || email === "loginlater") {
-      let responseData = await {
-        email,
-        news,
-        source,
-        image,
-      };
-      localStorage.clear();
-      sessionStorage.clear();
-      sessionStorage.setItem("news", JSON.stringify(responseData));
-    } else {
-      let responseData = await {
-        email,
-        news,
-        source,
-        image,
-      };
-      await axios
-        .post("https://newsapi-abipravi.herokuapp.com/bookmark/", responseData)
-        .then(
-          (res) => {
-            toast.success("Added to Bookmarked");
-          },
-          (err) => console.log(responseData, "error")
-        );
-    }
+    //    if (email === null || email === "loginlater") {
+    //    let responseData = await {
+    //    email,
+    //  news,
+    // source,
+    //image,
+    //};
+    //localStorage.clear();
+    //sessionStorage.clear();
+    //sessionStorage.setItem("news", JSON.stringify(responseData));
+    // }
+    //	else {
+    let responseData = await {
+      email,
+      news,
+      source,
+      image,
+    };
+    await axios
+      .post("https://newsapi-abipravi.herokuapp.com/bookmark/", responseData)
+      .then(
+        (res) => {
+          toast.success("Added to Bookmarked");
+        },
+        (err) => console.log(responseData, "error")
+      );
+    //}
   };
 
   let id;
@@ -54,7 +55,7 @@ export default function NewsCardComponent(props) {
     await toast.success(`Link Copied to clipboard`);
     await console.log(id, "id");
     await navigator.clipboard.writeText(
-      `${window.host}/share/${window.btoa(id)}`
+      `${window.location.host}/share/${window.btoa(id)}`
     );
   };
 
@@ -97,24 +98,26 @@ export default function NewsCardComponent(props) {
             >
               Source
             </a>
-            <svg
-              onClick={() =>
-                add_to_bookmark(props.news, props.link, props.image)
-              }
-              xmlns="http://www.w3.org/2000/svg"
-              width="30"
-              height="35"
-              data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop"
-              fill="#0d6efd"
-              class="bi bi-bookmark-plus-fill float-end"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm6.5-11a.5.5 0 0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z"
-              />
-            </svg>
+            {localStorage.getItem("user") !== "loginlater" && (
+              <svg
+                onClick={() =>
+                  add_to_bookmark(props.news, props.link, props.image)
+                }
+                xmlns="http://www.w3.org/2000/svg"
+                width="30"
+                height="35"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+                fill="#0d6efd"
+                class="bi bi-bookmark-plus-fill float-end"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm6.5-11a.5.5 0 0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z"
+                />
+              </svg>
+            )}
             <svg
               onClick={() => sharenews(props.news, props.link, props.image)}
               xmlns="http://www.w3.org/2000/svg"
