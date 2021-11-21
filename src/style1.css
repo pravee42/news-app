@@ -1,9 +1,9 @@
 :root {
-	touch-action: pan-x pan-y;
-	height: 100%;
-	/* cursor: url('./cursor.cur'); */
+  touch-action: pan-x pan-y;
+  height: 100%;
+  /* cursor: url('./cursor.cur'); */
 }
 
 .container {
-	cursor: url('cursor.cur');
+  cursor: url("cursor.cur");
 }

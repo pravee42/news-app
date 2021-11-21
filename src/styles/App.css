@@ -56,6 +56,10 @@
   list-style-type: none;
 }
 
+.bookmarkbutton {
+  float: right;
+}
+
 .list-group li {
   margin-top: 10px;
 }
