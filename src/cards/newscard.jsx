@@ -82,7 +82,7 @@ export default function NewsCardComponent(props) {
           src={props.image}
           lazy
           alt={"loading error"}
-          style={{ Height: 100, width: 150 }}
+          style={{ maxHeight: 100, width: 150 }}
           className="img-thumbnail"
         />
         <div className="news">
