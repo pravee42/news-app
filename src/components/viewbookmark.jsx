@@ -6,7 +6,7 @@ export default function ViewBookmark() {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const url = `http://newsapi-abipravi.herokuapp.com/bookmark/get/${localStorage.getItem(
+  const url = `https://newsapi-abipravi.herokuapp.com/bookmark/get/${localStorage.getItem(
     "user"
   )}`;
 
