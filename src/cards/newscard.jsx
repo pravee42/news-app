@@ -57,6 +57,7 @@ export default function NewsCardComponent(props) {
     await navigator.clipboard.writeText(
       `https://${window.location.host}/share/${window.btoa(id)}`
     );
+  }
 
     const closemodel = async () => {
       await localStorage.setItem("user", "loginlater");
@@ -190,4 +191,3 @@ export default function NewsCardComponent(props) {
       </>
     );
   };
-}
