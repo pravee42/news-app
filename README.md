@@ -35,4 +35,4 @@
 - [ ] Add Articles
 - [ ] Like and Speak about the news with friends
 - [ ] Embed News with your Website
-- [ ] Social Login
+- [x] Social Login
