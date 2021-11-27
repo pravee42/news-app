@@ -10,7 +10,7 @@
 
 # production
 
-/src/clintstore.jsx
+src/clintstore.jsx
 
 # misc
 .DS_Store
