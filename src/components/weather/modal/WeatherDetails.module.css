@@ -1,0 +1,78 @@
+.backdropContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  opacity: 80%;
+  z-index: 10;
+  animation: openBackdrop 0.2s ease-out forwards;
+}
+
+.backdropContainer::after {
+  content: "X";
+  position: fixed;
+  top: 3%;
+  right: 3%;
+  font-size: 2rem;
+  border-radius: 25%;
+  color: white;
+  cursor: pointer;
+}
+
+.modalContainer {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+  height: fit-content;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 20;
+  animation: openModal 0.2s ease-out forwards;
+}
+
+.closeModal {
+  animation: closeModal 0.2s ease-in-out forwards;
+}
+
+.closeBackdrop {
+  animation: closeBackdrop 0.2s ease-in-out forwards;
+}
+
+@keyframes openBackdrop {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 80%;
+  }
+}
+@keyframes openModal {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@keyframes closeBackdrop {
+  from {
+    opacity: 80%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
+@keyframes closeModal {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity: 0%;
+  }
+}
