@@ -34,6 +34,6 @@
 
 - [ ] Add Articles
 - [ ] Like and Speak about the news with friends
-- [ ] Embed News with your Website
+- [x] Embed News with your Website
 - [x] Social Login
 - [x] Share News
