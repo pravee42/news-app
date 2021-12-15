@@ -1,10 +1,14 @@
 .weatherContainer {
-  margin: 10px;
-  padding: 3px;
-  border-radius: 100px;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border-radius: 25px;
+  font-weight: 600;
+}
+
+.iconWeather {
+  width: 50px;
 }
 
 .weatherContainer:hover {
-  background-color: grey;
+  background-color: rgb(190, 190, 190);
 }

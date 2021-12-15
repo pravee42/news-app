@@ -11,6 +11,7 @@
 # production
 
 /src/clintstore.jsx
+/src/components/weather/hooks/_credentials.js
 
 # misc
 .DS_Store
