@@ -29,7 +29,7 @@
   min-width: fit-content;
   height: fit-content;
   padding: 1.5rem 2rem;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border-radius: 10px;
   text-align: center;
   z-index: 20;

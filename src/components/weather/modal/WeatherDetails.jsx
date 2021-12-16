@@ -30,56 +30,49 @@ const WeatherDetailsModal = (props) => {
     ? `${styles.backdropContainer} ${styles.closeBackdrop}`
     : `${styles.backdropContainer}`;
 
-  //handling data
-  const weatherIcon = `http://openweathermap.org/img/wn/${props.weatherData.data.current.weather[0].icon}@2x.png`;
-  const weatherTemp = `${Math.round(
-    props.weatherData.data.current.temp
-  ).toString()}°C`;
-  const weatherMain = props.weatherData.data.current.weather[0].main;
-  const weatherFeelsLike = `Feels like ${Math.round(
-    props.weatherData.data.current.feels_like
-  ).toString()}°C`;
-  const weatherUiv = props.weatherData.data.current.uvi;
-  const weatherWind = `${props.weatherData.data.current.wind_speed} km/h`;
-  const weatherHumidity = `${props.weatherData.data.current.humidity}%`;
-  const weatherVisibility = `${
-    props.weatherData.data.current.visibility / 1000
-  } km`;
-  const weatherPressure = `${props.weatherData.data.current.pressure} mb`;
-
   return (
     <>
       <div className={backdropClasses} onClick={onCloseHandler} />
       <div className={modalClasses} onClick={stopPropagationHandler}>
-        <p>City Name, Code</p>
+        <p>{`${props.weatherData.city}, ${props.weatherData.region}`}</p>
         <div className={styles.icon_temp}>
-          <img src={weatherIcon} />
-          <span className={styles.temp}>{weatherTemp}</span>
+          <img src={props.weatherData.current.icon} />
+          <span className={styles.temp}>{props.weatherData.current.temp}</span>
           <div className={styles.feels_like}>
-            <span className={styles.main}>{weatherMain}</span>
-            <span>{weatherFeelsLike}</span>
+            <span className={styles.main}>
+              {props.weatherData.current.main}
+            </span>
+            <span>{props.weatherData.current.feelsLike}</span>
           </div>
         </div>
         <div className={styles.details}>
           <div className={styles.detailsItem}>
             <span className={styles.desc}>UVI</span>
-            <span className={styles.data}>{weatherUiv}</span>
+            <span className={styles.data}>{props.weatherData.current.uvi}</span>
           </div>
           <div className={styles.detailsItem}>
             <span className={styles.desc}>WIND</span>
-            <span className={styles.data}>{weatherWind}</span>
+            <span className={styles.data}>
+              {props.weatherData.current.wind}
+            </span>
           </div>
           <div className={styles.detailsItem}>
             <span className={styles.desc}>HUMIDITY</span>
-            <span className={styles.data}>{weatherHumidity}</span>
+            <span className={styles.data}>
+              {props.weatherData.current.humidity}
+            </span>
           </div>
           <div className={styles.detailsItem}>
             <span className={styles.desc}>VISIBILITY</span>
-            <span className={styles.data}>{weatherVisibility}</span>
+            <span className={styles.data}>
+              {props.weatherData.current.visibility}
+            </span>
           </div>
           <div className={styles.detailsItem}>
             <span className={styles.desc}>PRESSURE</span>
-            <span className={styles.data}>{weatherPressure}</span>
+            <span className={styles.data}>
+              {props.weatherData.current.pressure}
+            </span>
           </div>
         </div>
       </div>

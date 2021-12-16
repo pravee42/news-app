@@ -1,40 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 
 import API_KEY from "./_credentials.js"; //Get API_KEY from https://openweathermap.org/api
 
 const useWeather = () => {
-  const userLatitude = "40.745807";
-  const userLongitude = "-74.061418";
-  const exclude = "minutely,hourly,daily";
-  const units = "metric";
+  const [weatherData, setWeatherData] = useState();
+  const [error, setError] = useState();
+  const [isLoadingRequest, setIsLoadingRequest] = useState(false);
+
+  const getUserLocation = async () => {
+    try {
+      const response = await axios.get("http://ip-api.com/json/");
+      return response;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const updateWeather = async () => {
+    const userLocation = await getUserLocation();
     const config = {
       params: {
         appid: API_KEY,
-        lat: userLatitude,
-        lon: userLongitude,
-        exclude: exclude,
-        units: units,
+        lat: userLocation.data.lat,
+        lon: userLocation.data.lon,
+        exclude: "minutely,hourly,daily",
+        units: "metric",
       },
     };
 
     try {
+      setIsLoadingRequest(true);
       console.log("sending request...");
       const response = await axios.get(
         "https://api.openweathermap.org/data/2.5/onecall",
         config
       );
-
-      return response;
+      const data = {
+        city: userLocation.data.city,
+        region: userLocation.data.region,
+        lat: userLocation.data.lat,
+        lon: userLocation.data.lon,
+        current: {
+          icon: `http://openweathermap.org/img/wn/${response.data.current.weather[0].icon}@2x.png`,
+          temp: `${Math.round(response.data.current.temp).toString()}°C`,
+          main: response.data.current.weather[0].main,
+          feelsLike: `Feels like ${Math.round(
+            response.data.current.feels_like
+          ).toString()}°C`,
+          uvi: response.data.current.uvi,
+          wind: `${response.data.current.wind_speed * 3.6}  km/h`,
+          humidity: `${response.data.current.humidity}%`,
+          visibility: `${response.data.current.visibility / 1000} km`,
+          pressure: `${response.data.current.pressure} mb`,
+        },
+      };
+      setWeatherData(data);
+      setError(null);
+      setIsLoadingRequest(false);
     } catch (error) {
-      console.log(error);
-      return error;
+      setError(error);
+      setIsLoadingRequest(false);
     }
   };
 
-  return updateWeather;
+  return [updateWeather, isLoadingRequest, weatherData, error];
 };
 
 export default useWeather;

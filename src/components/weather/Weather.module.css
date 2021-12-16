@@ -1,8 +1,18 @@
 .weatherContainer {
   display: flex;
   align-items: center;
-  border-radius: 25px;
   font-weight: 600;
+  border-radius: 12px;
+  background-color: rgba(194, 194, 194, 0.5);
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  border-radius: 12px;
+  background-color: rgba(194, 194, 194, 0.5);
 }
 
 .iconWeather {
