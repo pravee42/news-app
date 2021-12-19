@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DailyList from "./daily/DailyList";
 
 import styles from "./WeatherDetails.module.css";
 
@@ -9,19 +10,15 @@ const WeatherDetailsModal = (props) => {
     e.stopPropagation();
   };
 
+  // handling open & close fade animation
   const onCloseHandler = (e) => {
     e.stopPropagation();
-
-    //starting close fade animation
     setIsClosing(true);
-
-    //waiting until close animation ends to deliver onClose();
     setTimeout(() => {
       props.onClose();
     }, 200);
   };
 
-  //handling classes animation on open/close states
   const modalClasses = isClosing
     ? `${styles.modalContainer} ${styles.closeModal}`
     : `${styles.modalContainer}`;
@@ -75,6 +72,7 @@ const WeatherDetailsModal = (props) => {
             </span>
           </div>
         </div>
+        <DailyList data={props.weatherData.daily} />
       </div>
     </>
   );

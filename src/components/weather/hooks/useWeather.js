@@ -24,14 +24,13 @@ const useWeather = () => {
         appid: API_KEY,
         lat: userLocation.data.lat,
         lon: userLocation.data.lon,
-        exclude: "minutely,hourly,daily",
+        exclude: "minutely,hourly",
         units: "metric",
       },
     };
 
     try {
       setIsLoadingRequest(true);
-      console.log("sending request...");
       const response = await axios.get(
         "https://api.openweathermap.org/data/2.5/onecall",
         config
@@ -49,11 +48,23 @@ const useWeather = () => {
             response.data.current.feels_like
           ).toString()}°C`,
           uvi: response.data.current.uvi,
-          wind: `${response.data.current.wind_speed * 3.6}  km/h`,
+          wind: `${Math.round(response.data.current.wind_speed * 3.6)}  km/h`,
           humidity: `${response.data.current.humidity}%`,
           visibility: `${response.data.current.visibility / 1000} km`,
           pressure: `${response.data.current.pressure} mb`,
         },
+        daily: [
+          response.data.daily.map((item) => {
+            return {
+              date: new Date(item.dt * 1000),
+              pop: `${Math.round(item.pop * 100)}%`,
+              tempMin: `${Math.round(item.temp.min)} °C`,
+              tempMax: `${Math.round(item.temp.max)} °C`,
+              icon: `http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`,
+              main: item.weather[0].main,
+            };
+          }),
+        ],
       };
       setWeatherData(data);
       setError(null);

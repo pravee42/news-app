@@ -21,8 +21,8 @@ const Weather = (props) => {
 
   useEffect(() => {
     const interval = setInterval(async () => {
-      /*      await updateWeather(); */
-    }, 60000);
+      await updateWeather();
+    }, 180000);
     return () => clearInterval(interval);
   }, []);
 
