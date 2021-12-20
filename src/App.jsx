@@ -23,6 +23,7 @@ import { SharedNewsComponent } from "./components/shared_news/SharedNews";
 import HomePageMobileComponent from "./mobileview/home";
 import VITE_GAUTH_ID from "./clintstore";
 import axios from "axios";
+import Weather from "./components/weather/Weather";
 
 export default function App() {
   const [open, setOpen] = useState(false);
@@ -93,21 +94,28 @@ export default function App() {
                   {open === false ? (
                     <div
                       style={{
-                        padding: 3,
-                        margin: 10,
                         position: "absolute",
-                        border: "1px solid blue",
-                        borderRadius: 100,
                       }}
-                      className="avatar_div"
                     >
-                      <img
-                        src={localStorage.getItem("avatar")}
-                        onClick={setopen}
-                        lazy
-                        className="avatar_img"
-                        alt="avatar"
-                      />
+                      <div
+                        style={{
+                          margin: 10,
+                          padding: 3,
+                          border: "1px solid blue",
+                          borderRadius: 100,
+                          width: "fit-content",
+                        }}
+                        className="avatar_div"
+                      >
+                        <img
+                          src={localStorage.getItem("avatar")}
+                          onClick={setopen}
+                          lazy
+                          className="avatar_img"
+                          alt="avatar"
+                        />
+                      </div>
+                      <Weather />
                     </div>
                   ) : (
                     <div></div>
