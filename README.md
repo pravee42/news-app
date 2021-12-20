@@ -37,3 +37,4 @@
 - [x] Embed News with your Website
 - [x] Social Login
 - [x] Share News
+- [x] Weather Forecast by [urtadolg Leandro Urtado](https://github.com/urtadolg)
