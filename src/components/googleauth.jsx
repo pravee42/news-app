@@ -15,22 +15,24 @@ export default function GoogleAuth(props) {
 			password: e.profileObj.googleId,
 			avatar: e.profileObj.imageUrl,
 		};
-		await axios.post("http://127.0.0.1:8080/auth", UserData).then(
-			(res) => {
-				setLoading(false);
-				console.log(res);
-				localStorage.setItem("user", e.profileObj.email);
-				localStorage.setItem("avatar", e.profileObj.imageUrl);
-				localStorage.setItem("name", e.profileObj.name);
-				window.location.reload();
-			},
-			(err) => {
-				setLoading(false);
-				toast.error(
-					"User Does not Exists Please register or continue without Login"
-				);
-			}
-		);
+		await axios
+			.post("https://newsapi-abipravi.herokuapp.com/auth", UserData)
+			.then(
+				(res) => {
+					setLoading(false);
+					console.log(res);
+					localStorage.setItem("user", e.profileObj.email);
+					localStorage.setItem("avatar", e.profileObj.imageUrl);
+					localStorage.setItem("name", e.profileObj.name);
+					window.location.reload();
+				},
+				(err) => {
+					setLoading(false);
+					toast.error(
+						"User Does not Exists Please register or continue without Login"
+					);
+				}
+			);
 	};
 
 	const Register = async (e) => {
@@ -42,7 +44,10 @@ export default function GoogleAuth(props) {
 			avatar: e.profileObj.imageUrl,
 		};
 		await axios
-			.post("http://127.0.0.1:8000/auth/createuser/", UserData)
+			.post(
+				"https://newsapi-abipravi.herokuapp.com/auth/createuser/",
+				UserData
+			)
 			.then(
 				(res) => {
 					setLoading(false);
@@ -53,7 +58,7 @@ export default function GoogleAuth(props) {
 					toast.info(
 						"User Already Exists Click Login or use the App without login"
 					);
-					console.log(err)
+					console.log(err);
 				}
 			);
 		setLoading(false);
