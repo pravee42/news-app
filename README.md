@@ -38,3 +38,4 @@
 - [x] Social Login
 - [x] Share News
 - [x] Weather Forecast by [urtadolg Leandro Urtado](https://github.com/urtadolg)
+- [ ] Detail summary of the news
