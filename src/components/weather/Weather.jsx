@@ -63,7 +63,7 @@ const Weather = (props) => {
 					<span>{weatherData && weatherData.current.temp}</span>
 				</div>
 			) : (
-				<p className={styles.loading}>Try again...</p>
+				<p className={styles.loading}>0<sup>o</sup>c</p>
 			)}
 		</>
 	);
