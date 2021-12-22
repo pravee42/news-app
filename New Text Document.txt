@@ -1,7 +1,0 @@
-BROWSER=none
-
-VITE_Email_Clint_ID=user_xP3wFo8GpIigDLn6mfB95
-
-VITE_1SERVICE_ID=service_d77dv6o
-
-VITE_1TEMPLATE_ID=template_42dykej

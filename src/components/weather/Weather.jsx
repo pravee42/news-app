@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { createPortal } from "react-dom";
 
 import useWeather from "./hooks/useWeather";
 import styles from "./Weather.module.css";
