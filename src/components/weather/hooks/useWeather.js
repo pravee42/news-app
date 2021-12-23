@@ -31,7 +31,7 @@ const useWeather = () => {
 	}, [lat, lon]);
 
 	const updateWeather = async () => {
-		const userLocation = await getUserLocation();
+		// const userLocation = await getUserLocation();
 		const config = {
 			params: {
 				appid: API_KEY,
@@ -49,8 +49,8 @@ const useWeather = () => {
 				config,
 			);
 			const data = {
-				city: userLocation.data.city,
-				region: userLocation.data.region,
+				// city: userLocation.data.city,
+				// region: userLocation.data.region,
 				lat: lat,
 				lon: lon,
 				current: {
