@@ -28,8 +28,8 @@ export default function TechNews() {
             padding: "100px",
           }}
         >
-          <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
+          <div Name="spinner-border text-primary" role="status">
+            <span Name="visually-hidden">Loading...</span>
           </div>
         </div>
       )}

@@ -24,7 +24,7 @@ export default function SearchNews() {
         />
         <button
           value="Search"
-          class="btn btn-primary search_button"
+          className="btn btn-primary search_button"
           onClick={getNews}
         ></button>
       </div>
@@ -39,8 +39,8 @@ export default function SearchNews() {
               padding: "100px",
             }}
           >
-            <div class="spinner-border text-primary" role="status">
-              <span class="visually-hidden">Loading...</span>
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
             </div>
           </div>
         )}

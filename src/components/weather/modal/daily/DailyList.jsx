@@ -46,7 +46,7 @@ const DailyList = (props) => {
                 focusable="false"
                 data-prefix="fas"
                 data-icon="tint"
-                class={`${styles.pop} svg-inline--fa fa-tint fa-w-11`}
+                className={`${styles.pop} svg-inline--fa fa-tint fa-w-11`}
                 role="img"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 352 512"
@@ -73,7 +73,7 @@ const DailyList = (props) => {
         focusable="false"
         data-prefix="fas"
         data-icon="angle-right"
-        class={`${styles.nextArrow} svg-inline--fa fa-angle-right fa-w-8`}
+        className={`${styles.nextArrow} svg-inline--fa fa-angle-right fa-w-8`}
         role="img"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 256 512"
@@ -93,7 +93,7 @@ const DailyList = (props) => {
         focusable="false"
         data-prefix="fas"
         data-icon="angle-right"
-        class={`${styles.nextArrow} svg-inline--fa fa-angle-right fa-w-8`}
+        className={`${styles.nextArrow} svg-inline--fa fa-angle-right fa-w-8`}
         role="img"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 256 512"

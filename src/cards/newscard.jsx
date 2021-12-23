@@ -80,7 +80,7 @@ export default function NewsCardComponent(props) {
         <div className="newsCard border border-light align-left shadow-sm p-3 mb-5 bg-body rounded ">
           <img
             src={props.image}
-            lazy
+            lazy="true"
             alt={"loading error"}
             style={{ maxHeight: 100, width: 150 }}
             className="img-thumbnail"
@@ -89,7 +89,7 @@ export default function NewsCardComponent(props) {
             {props.shortnews && <h6 className="heading ">{props.news}</h6>}
             {!props.shortnews && <h6 className="heading">{props.news}</h6>}
             <p className="summary text-muted">{props.shortnews}</p>
-            <div class="align-center" style={{ width: "100%" }}>
+            <div className="align-center" style={{ width: "100%" }}>
               <a
                 className="btn btn-outline-primary float-start"
                 rel="noreferrer"
@@ -109,11 +109,11 @@ export default function NewsCardComponent(props) {
                   data-bs-toggle="modal"
                   data-bs-target="#staticBackdrop"
                   fill="#0d6efd"
-                  class="bi bi-bookmark-plus-fill float-end"
+                  className="bi bi-bookmark-plus-fill float-end"
                   viewBox="0 0 16 16"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm6.5-11a.5.5 0 0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z"
                   />
                 </svg>
@@ -127,11 +127,11 @@ export default function NewsCardComponent(props) {
                   width="30"
                   height="35"
                   fill="#0d6efd"
-                  class="bi bi-bookmark-plus-fill float-end"
+                  className="bi bi-bookmark-plus-fill float-end"
                   viewBox="0 0 16 16"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M2 15.5V2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.74.439L8 13.069l-5.26 2.87A.5.5 0 0 1 2 15.5zm6.5-11a.5.5 0 0 0-1 0V6H6a.5.5 0 0 0 0 1h1.5v1.5a.5.5 0 0 0 1 0V7H10a.5.5 0 0 0 0-1H8.5V4.5z"
                   />
                 </svg>
@@ -143,40 +143,40 @@ export default function NewsCardComponent(props) {
                 width="20"
                 height="35"
                 fill="#0d6efd"
-                class="bi bi-share-fill float-end"
+                className="bi bi-share-fill float-end"
                 viewBox="0 0 16 16"
               >
                 <path d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z" />
               </svg>
             </div>
             <div
-              class="modal fade"
+              className="modal fade"
               id="staticBackdrop"
               data-bs-backdrop="static"
               data-bs-keyboard="false"
-              tabindex="-1"
+              tabIndex="-1"
               aria-labelledby="staticBackdropLabel"
               aria-hidden="true"
             >
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">
+              <div className="modal-dialog">
+                <div className="modal-content">
+                  <div className="modal-header">
+                    <h5 className="modal-title" id="staticBackdropLabel">
                       Login to add news to bookmark
                     </h5>
                     <button
                       type="button"
-                      class="btn-close"
+                      className="btn-close"
                       data-bs-dismiss="modal"
                       onClick={closemodel}
                       aria-label="Close"
                     ></button>
                   </div>
                   <GoogleAuth clintId={VITE_GAUTH_ID} />{" "}
-                  <div class="modal-footer">
+                  <div className="modal-footer">
                     <button
                       type="button"
-                      class="btn btn-danger"
+                      className="btn btn-danger"
                       data-bs-dismiss="modal"
                       onClick={closemodel}
                     >

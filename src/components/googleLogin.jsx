@@ -111,7 +111,7 @@ export default function GoogleLoginComponent() {
               aria-label="With textarea"
             ></textarea>
             <div style={{ margin: 10 }}>
-              <button onClick={sendmail} class="btn btn-outline-primary">
+              <button onClick={sendmail} className="btn btn-outline-primary">
                 Send FeedBack Mail
               </button>
             </div>
@@ -127,8 +127,8 @@ export default function GoogleLoginComponent() {
             padding: "100px",
           }}
         >
-          <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
         </div>
       )}

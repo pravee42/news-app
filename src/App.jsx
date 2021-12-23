@@ -113,7 +113,7 @@ export default function App() {
 														"avatar"
 													)}
 													onClick={setopen}
-													lazy
+													lazy="true"
 													className="avatar_img"
 													alt="avatar"
 												/>
@@ -138,7 +138,7 @@ export default function App() {
 												<div>
 													<ul className="list-group">
 														<li>
-															<p class="btn btn-primary">
+															<p className="btn btn-primary">
 																Welcome
 																&nbsp;Back
 																&nbsp;
@@ -151,7 +151,7 @@ export default function App() {
 														</li>
 														<li>
 															<Link
-																class="btn btn-primary"
+																className="btn btn-primary"
 																to="/search"
 															>
 																Search News
@@ -159,7 +159,7 @@ export default function App() {
 														</li>
 														<li>
 															<Link
-																class="btn btn-primary"
+																className="btn btn-primary"
 																to="/home"
 															>
 																Home
@@ -167,7 +167,7 @@ export default function App() {
 														</li>
 														<li>
 															<Link
-																class="btn btn-primary"
+																className="btn btn-primary"
 																to="/tech"
 															>
 																Tech News
@@ -175,7 +175,7 @@ export default function App() {
 														</li>
 														<li>
 															<Link
-																class="btn btn-primary"
+																className="btn btn-primary"
 																to="/sports"
 															>
 																Sports News
@@ -183,7 +183,7 @@ export default function App() {
 														</li>
 														<li>
 															<Link
-																class="btn btn-primary"
+																className="btn btn-primary"
 																to="/education"
 															>
 																Educational News
@@ -191,7 +191,7 @@ export default function App() {
 														</li>
 														<li>
 															<Link
-																class="btn btn-primary"
+																className="btn btn-primary"
 																to="/business"
 															>
 																Business News
@@ -199,7 +199,7 @@ export default function App() {
 														</li>
 														<li>
 															<Link
-																class="btn btn-primary"
+																className="btn btn-primary"
 																to="/economy"
 															>
 																Economy
@@ -207,7 +207,7 @@ export default function App() {
 														</li>
 														<li>
 															<Link
-																class="btn btn-primary"
+																className="btn btn-primary"
 																to="/market"
 															>
 																Share Market
@@ -215,7 +215,7 @@ export default function App() {
 														</li>
 														<li>
 															<Link
-																class="btn btn-primary"
+																className="btn btn-primary"
 																to="/contact"
 															>
 																Feed Back Form
@@ -227,7 +227,7 @@ export default function App() {
 														) : (
 															<li>
 																<Link
-																	class="btn btn-primary"
+																	className="btn btn-primary"
 																	to="/bookmark"
 																>
 																	My Bookmarks
@@ -240,9 +240,9 @@ export default function App() {
 										</>
 									)}
 								</div>
-								<div class="main">
+								<div className="main">
 									{url && (
-										<div class="url">
+										<div className="url">
 											<p>
 												Go to
 												<Link
@@ -254,7 +254,7 @@ export default function App() {
 											</p>
 										</div>
 									)}
-									<div class="news-container">
+									<div className="news-container">
 										{sessionStorage.getItem("news") &&
 											toast.info(sessionAdd)}
 										<Switch>

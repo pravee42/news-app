@@ -120,7 +120,7 @@ export default function GoogleAuth(props) {
 							onFailure={responseGoogle}
 						/>
 						<button
-							class="btn btn-outline-primary"
+							className="btn btn-outline-primary"
 							style={{ marginTop: 20 }}
 							onClick={loginlater}
 						>
@@ -137,8 +137,8 @@ export default function GoogleAuth(props) {
 							padding: "100px",
 						}}
 					>
-						<div class="spinner-border text-primary" role="status">
-							<span class="visually-hidden">Loading...</span>
+						<div className="spinner-border text-primary" role="status">
+							<span className="visually-hidden">Loading...</span>
 						</div>
 					</div>
 				)}

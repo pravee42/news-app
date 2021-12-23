@@ -31,7 +31,7 @@ const WeatherDetailsModal = (props) => {
     <>
       <div className={backdropClasses} onClick={onCloseHandler} />
       <div className={modalClasses} onClick={stopPropagationHandler}>
-        <p>{`${props.weatherData.city}, ${props.weatherData.region}`}</p>
+       {props.weatherData.city !== undefined &&  <p>{`${props.weatherData.city}, ${props.weatherData.region}`}</p>}
         <div className={styles.icon_temp}>
           <img src={props.weatherData.current.icon} />
           <span className={styles.temp}>{props.weatherData.current.temp}</span>

@@ -28,15 +28,15 @@ export default function Home() {
             padding: "100px",
           }}
         >
-          <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
         </div>
       )}
-      {news.map((data) => {
+      {news.map((data, id) => {
         return (
           <NewsCardComponent
-            key={data.id}
+            key={id}
             image={data.image}
             news={data.news}
             link={data.link}
