@@ -10,14 +10,14 @@ const useWeather = () => {
 	const [lat, setLat] = useState();
 	const [lon, setLon] = useState();
 
-	const getUserLocation = async () => {
-		try {
-			const response = await axios.get('http://ip-api.com/json/');
-			return response;
-		} catch (error) {
-			console.log(error);
-		}
-	};
+	// const getUserLocation = async () => {
+	// 	try {
+	// 		const response = await axios.get('http://ip-api.com/json/');
+	// 		return response;
+	// 	} catch (error) {
+	// 		console.log(error);
+	// 	}
+	// };
 
 	useEffect(() => {
 		navigator.geolocation.getCurrentPosition(function (position) {
