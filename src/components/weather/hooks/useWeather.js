@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-import API_KEY from './_credentials.js'; //Get API_KEY from https://openweathermap.org/api
+import API_KEY from "./_credentials.js"; //Get API_KEY from https://openweathermap.org/api
 
 const useWeather = () => {
 	const [weatherData, setWeatherData] = useState();
@@ -20,11 +20,24 @@ const useWeather = () => {
 	// };
 
 	useEffect(() => {
+		if (navigator.geolocation.getCurrentPosition) {
+			getPosition();
+		} else {
+			navigator.geolocation.getCurrentPosition(function (pos) {
+				setLat(pos);
+				setLon(pos);
+				getPosition();
+			});
+		}
+	}, []);
+
+	const getPosition = () => {
 		navigator.geolocation.getCurrentPosition(function (position) {
 			setLat(position.coords.latitude);
 			setLon(position.coords.longitude);
 		});
-	}, []);
+		updateWeather();
+	};
 
 	useEffect(() => {
 		updateWeather();
@@ -37,16 +50,16 @@ const useWeather = () => {
 				appid: API_KEY,
 				lat: lat,
 				lon: lon,
-				exclude: 'minutely,hourly',
-				units: 'metric',
+				exclude: "minutely,hourly",
+				units: "metric",
 			},
 		};
 
 		try {
 			setIsLoadingRequest(true);
 			const response = await axios.get(
-				'https://api.openweathermap.org/data/2.5/onecall',
-				config,
+				"https://api.openweathermap.org/data/2.5/onecall",
+				config
 			);
 			const data = {
 				// city: userLocation.data.city,
@@ -55,13 +68,17 @@ const useWeather = () => {
 				lon: lon,
 				current: {
 					icon: `http://openweathermap.org/img/wn/${response.data.current.weather[0].icon}@2x.png`,
-					temp: `${Math.round(response.data.current.temp).toString()}°C`,
+					temp: `${Math.round(
+						response.data.current.temp
+					).toString()}°C`,
 					main: response.data.current.weather[0].main,
 					feelsLike: `Feels like ${Math.round(
-						response.data.current.feels_like,
+						response.data.current.feels_like
 					).toString()}°C`,
 					uvi: response.data.current.uvi,
-					wind: `${Math.round(response.data.current.wind_speed * 3.6)}  km/h`,
+					wind: `${Math.round(
+						response.data.current.wind_speed * 3.6
+					)}  km/h`,
 					humidity: `${response.data.current.humidity}%`,
 					visibility: `${response.data.current.visibility / 1000} km`,
 					pressure: `${response.data.current.pressure} mb`,

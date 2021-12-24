@@ -57,12 +57,13 @@ const Weather = (props) => {
 				>
 					<img
 						className={styles.iconWeather}
+						lazy
 						src={weatherData && weatherData.current.icon}
 					/>
 					<span>{weatherData && weatherData.current.temp}</span>
 				</div>
 			) : (
-				<p className={styles.loading}>0<sup>o</sup>c</p>
+				<p className={styles.loading}>Loading</p>
 			)}
 		</>
 	);
