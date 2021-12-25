@@ -89,32 +89,27 @@
 
     <!-- Your Chat plugin code -->
     <div id="fb-customer-chat" class="fb-customerchat"></div>
-    <script
-      async
-      src="https://cse.google.com/cse.js?cx=0e838245a7dd4c8ce"
-    ></script>
-    <div class="gcse-search"></div>
     <script>
-      {% comment %} var chatbox = document.getElementById('fb-customer-chat');
-      chatbox.setAttribute('page_id', '105673224167318');
-      chatbox.setAttribute('attribution', 'biz_inbox');
+      var chatbox = document.getElementById("fb-customer-chat");
+      chatbox.setAttribute("page_id", "105673224167318");
+      chatbox.setAttribute("attribution", "biz_inbox");
 
       window.fbAsyncInit = function () {
-      	FB.init({
-      		xfbml: true,
-      		version: 'v12.0',
-      	});
+        FB.init({
+          xfbml: true,
+          version: "v12.0",
+        });
       };
 
       (function (d, s, id) {
-      	var js,
-      		fjs = d.getElementsByTagName(s)[0];
-      	if (d.getElementById(id)) return;
-      	js = d.createElement(s);
-      	js.id = id;
-      	js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-      	fjs.parentNode.insertBefore(js, fjs);
-      })(document, 'script', 'facebook-jssdk'); {% endcomment %}
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
     </script>
   </body>
 </html>
