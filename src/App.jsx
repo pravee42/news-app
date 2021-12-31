@@ -234,6 +234,17 @@ export default function App() {
 																</Link>
 															</li>
 														)}
+														<li>
+															<button
+																className="btn btn-primary"
+																onClick={(e) => {
+																	localStorage.clear()
+																	window.location.reload()
+																}}
+															>
+																Logout
+															</button>
+														</li>
 													</ul>
 												</div>
 											</div>

@@ -2,10 +2,56 @@ import React, { useState, useEffect } from "react";
 import { GoogleLogin } from "react-google-login";
 import axios from "axios";
 import { toast } from "react-toastify";
+import avatarImage from '../images/avatar.png'
 import "react-toastify/dist/ReactToastify.css";
 
 export default function GoogleAuth(props) {
 	const [loading, setLoading] = useState(false);
+	const [password, setPassword] = useState("");
+	const [confrimpassword, setConfrimpassword] = useState("");
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [avatar, setAvatar] = useState("");
+	const [alert, setAlert] = useState(false);
+
+
+	const RegisterManual = async () => {
+		if (password === confrimpassword) {
+			setLoading(true);
+			let UserData = {
+			email: email,
+			name: name,
+			password: password,
+			avatar: avatar,
+			};
+		await axios
+			.post(
+				"https://newsapi-abipravi.herokuapp.com/auth/createuser/",
+				UserData
+			)
+			.then(
+				(res) => {
+					setLoading(false);
+					toast.success("User Created Sucessfully now you can login");
+				},
+				(err) => {
+					setLoading(false);
+					toast.info(
+						"User Already Exists We are logging you in"
+					);
+					console.log(err);
+				}
+			);
+		setLoading(false);
+		localStorage.setItem("user", email);
+		localStorage.setItem("avatar", avatar);
+			localStorage.setItem("name", name);
+			window.location.reload();
+		}
+		else {
+			setAlert(true)
+		}
+	}
 
 	const responseGoogle = async (e) => {
 		setLoading(true);
@@ -71,12 +117,45 @@ export default function GoogleAuth(props) {
 		localStorage.setItem("user", "loginlater");
 		localStorage.setItem(
 			"avatar",
-			"https://e7.pngegg.com/pngimages/929/428/png-clipart-responsive-web-design-navigation-bar-computer-icons-menu-hamburger-button-menu-text-cafe.png"
+			avatarImage
 		);
 		localStorage.setItem("name", "User");
 		window.location.href = `${window.location.host}/home`;
 		window.location.reload();
 	};
+
+	const LoginManual = async () => {
+		setLoading(true);
+		let UserData = {
+			email: email,
+			name: name,
+			password: password,
+		};
+		await axios
+			.post("https://newsapi-abipravi.herokuapp.com/auth", UserData)
+			.then(
+				(res) => {
+					setLoading(false);
+					console.log(res);
+					localStorage.setItem("user", email);
+					localStorage.setItem("avatar", avatarImage);
+					localStorage.setItem("name", name);
+					window.location.reload();
+				},
+				(err) => {
+					setLoading(false);
+					toast.error(
+						"User Does not Exists Please register or continue without Login"
+					);
+				}
+			);
+	}
+
+	const forgetpassword = () => {
+		toast.error(
+			"Sorry we cannot recover your password for some security reasons Try using your google account login instead or create a new account with the same email id"
+		);
+	}
 
 	return (
 		<>
@@ -86,7 +165,9 @@ export default function GoogleAuth(props) {
 						style={{
 							display: "flex",
 							flexDirection: "row",
-							justifyContent: "space-between",
+							flexWrap: 'wrap',
+							
+							alignItems:'center'
 						}}
 					>
 						<div
@@ -94,17 +175,18 @@ export default function GoogleAuth(props) {
 								display: "flex",
 								flexDirection: "column",
 								height: "100vh",
-								width: "100%",
+								// width: "50%",
 								justifyContent: "center",
+								padding: '20px',
 								alignItems: "center",
 								overflowX: "hidden",
 							}}
 						>
 							<h4
 								style={{
-									margin: 10,
+									fontSize: 15
 								}}
-								className="alert alert-danger"
+								className="alert alert-info"
 							>
 								You Have Not Logged In please login with your
 								google account here
@@ -164,7 +246,7 @@ export default function GoogleAuth(props) {
 							style={{
 								margin: 20,
 								height: "100%",
-								width: "50%",
+								width: "30%",
 								display: "flex",
 								flexDirection: "column",
 								justifyContent: "space-evenly",
@@ -174,6 +256,7 @@ export default function GoogleAuth(props) {
 								<input
 									type="email"
 									class="form-control"
+									onChange={(e) => {setEmail(e.target.value)}}
 									id="floatingInput"
 									placeholder="name@example.com"
 								/>
@@ -183,6 +266,7 @@ export default function GoogleAuth(props) {
 								<input
 									type="text"
 									class="form-control"
+									onChange={(e) => {setName(e.target.value)}}
 									id="floatingInput"
 									placeholder="user name"
 								/>
@@ -192,6 +276,7 @@ export default function GoogleAuth(props) {
 								<input
 									type="password"
 									class="form-control"
+									onChange={(e) => {setPassword(e.target.value)}}
 									id="floatingInput"
 									placeholder="password"
 								/>
@@ -201,21 +286,54 @@ export default function GoogleAuth(props) {
 								<input
 									type="password"
 									class="form-control"
+									onChange={(e) => {setConfrimpassword(e.target.value)}}
 									id="floatingInput"
 									placeholder="password"
 								/>
-								<label for="floatingInput">Password</label>
+								<label for="floatingInput">Retype Password</label>
 							</div>
+							{
+								alert === true && (
+									<div class="alert alert-danger" role="alert">
+										Password Does not match
+									</div>
+								)
+							}
 							<div class="form-floating mb-3">
 								<input
 									type="url"
 									class="form-control"
+									onChange={(e) => {setAvatar(e.target.value)}}
 									id="floatingInput"
 									placeholder="https:www.avatar.com/useravatar"
 								/>
 								<label for="floatingInput">Avatar Image</label>
 							</div>
-							<button>Submit</button>
+							<button className="btn btn-outline-success" onClick={RegisterManual}>Submit</button>
+						</div>
+						<div>
+							<div class="form-floating mb-3">
+								<input
+									type="url"
+									class="form-control"
+									onChange={(e) => {setEmail(e.target.value)}}
+									id="floatingInput"
+									placeholder="Email Id"
+								/>
+								<label for="floatingInput">Email Address</label>
+							</div>
+							<div class="form-floating mb-3">
+								<input
+									type="password"
+									class="form-control"
+									onChange={(e) => {setPassword(e.target.value)}}
+									id="floatingInput"
+									placeholder="Password"
+								/>
+								<label for="floatingInput">Password</label>
+							</div>
+							<button className="btn btn-outline-success" onClick={LoginManual}>Login</button>
+							<button className="btn btn-danger" style={{margin: 5}} onClick={forgetpassword}>Forget Password</button>
 						</div>
 					</div>
 				) : (

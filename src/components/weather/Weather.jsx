@@ -12,18 +12,15 @@ const Weather = (props) => {
 
 	//update weather each x minutes
 	useEffect(() => {
-		const sendFirstRequest = async () => {
-			await updateWeather();
-		};
-		sendFirstRequest();
-	}, []);
+		updateWeather()
+	}, [weatherData, isModalOpened]);
 
-	useEffect(() => {
-		const interval = setInterval(async () => {
-			await updateWeather();
-		}, 180000);
-		return () => clearInterval(interval);
-	}, []);
+	// useEffect(() => {
+	// 	const interval = setInterval(async () => {
+	// 		await updateWeather();
+	// 	}, 180000);
+	// 	return () => clearInterval(interval);
+	// }, [updateWeather]);
 
 	const onWeatherClickHandler = (e) => {
 		e.stopPropagation();
