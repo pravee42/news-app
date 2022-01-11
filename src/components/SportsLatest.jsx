@@ -7,7 +7,7 @@ export default function SportsNewsLatestComponent() {
 
   const getNews = async () => {
     await axios
-      .get("http://newsapi-abipravi.herokuapp.com/sports/latest")
+      .get("https://newsapi-abipravi.herokuapp.com/sports/latest")
       .then((res) => setNews(res.data))
       .then((err) => console.error(err));
   };
