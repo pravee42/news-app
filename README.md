@@ -1,6 +1,6 @@
 ###  It is a react js application built to get the news for the user with google login by using the API called abipravi-newsapi. <br /> <br /> It will get news from several websites and then convert them into an API, Then serves to the user as a clean Web Application.
 
-#### **Demo link:** [Visit Demo](newsapi-abipravi.netlify.app)
+#### **Demo link:** [Visit Demo](https://news.abipravi.live)
 
 
 ### Tools Used
@@ -38,4 +38,5 @@
 - [x] Social Login
 - [x] Share News
 - [x] Weather Forecast by [urtadolg Leandro Urtado](https://github.com/urtadolg)
+- [x] Custom User Register and Login
 - [ ] Detail summary of the news
