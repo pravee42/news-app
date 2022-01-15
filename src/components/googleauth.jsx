@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { GoogleLogin } from "react-google-login";
+// import TwitterUserAuth from "./twitterauth";
 import axios from "axios";
 import { toast } from "react-toastify";
 import avatarImage from "../images/avatar.png";
@@ -181,152 +182,163 @@ export default function GoogleAuth(props) {
                 overflowX: "hidden",
               }}
             >
-              <h4
-                style={{
-                  fontSize: 15,
-                }}
-                className="alert alert-info"
-              >
-                You Have Not Logged In please login with your google account
-                here
-              </h4>
-
-              <GoogleLogin
-                clientId={props.authid}
-                onSuccess={responseGoogle}
-                render={(renderProps) => (
-                  <button
+              {showRegisterform === false && (
+                <>
+                  <h4
                     style={{
-                      marginTop: 20,
+                      fontSize: 15,
                     }}
-                    className="btn btn-outline-primary"
-                    onClick={renderProps.onClick}
-                    disabled={renderProps.disabled}
+                    className="alert alert-info"
                   >
-                    Login with google😜
+                    You Have Not Logged In please login with your google account
+                    here
+                  </h4>
+                  <div className="d-flex flex-row gap-1">
+                    <GoogleLogin
+                      clientId={props.authid}
+                      onSuccess={responseGoogle}
+                      render={(renderProps) => (
+                        <button
+                          onClick={renderProps.onClick}
+                          disabled={renderProps.disabled}
+                          class="bi bi-google btn btn-dark"
+                        ></button>
+                      )}
+                      theme="dark"
+                      icon="false"
+                      onFailure={responseGoogle}
+                    />
+                  </div>
+                  <button
+                    className="btn btn-outline-dark"
+                    style={{ marginTop: 20 }}
+                    onClick={loginlater}
+                  >
+                    Continue Without Login
                   </button>
-                )}
-                theme="dark"
-                icon="false"
-                onFailure={responseGoogle}
-              />
-              <button
-                className="btn btn-outline-primary"
-                style={{ marginTop: 20 }}
-                onClick={loginlater}
-              >
-                Continue Without Login
-              </button>
+                </>
+              )}
             </div>
-            {showRegisterform && (
-              <div
-                className="d-grid gap-1"
-                style={{
-                  margin: 20,
-                  height: "100%",
-                  width: "30%",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-evenly",
-                }}
-              >
-                <div class="form-floating mb-3">
-                  <input
-                    type="email"
-                    class="form-control"
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                    }}
-                    id="floatingInput"
-                    placeholder="name@example.com"
+            <div
+              className="d-flex flex-row justify-content-center align-middle"
+              style={{ flexWrap: "wrap" }}
+            >
+              <div>
+                {showRegisterform === true && (
+                  <GoogleLogin
+                    clientId={props.authid}
+                    onSuccess={Register}
+                    render={(renderProps) => (
+                      <h3
+                        onClick={renderProps.onClick}
+                        disabled={renderProps.disabled}
+                        class="bi bi-google btn btn-dark h-0"
+                      >
+                        {" "}
+                        &nbsp; Register With Google
+                      </h3>
+                    )}
+                    theme="dark"
+                    icon="false"
+                    className="btn btn-outline-primary"
+                    buttonText="Register With Google Account"
+                    onFailure={Register}
                   />
-                  <label for="floatingInput">Email address</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input
-                    type="text"
-                    class="form-control"
-                    onChange={(e) => {
-                      setName(e.target.value);
+                )}
+              </div>
+              <div>
+                {showRegisterform && (
+                  <div
+                    className="d-grid gap-2"
+                    style={{
+                      margin: 20,
+                      height: "100%",
+                      width: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-evenly",
                     }}
-                    id="floatingInput"
-                    placeholder="user name"
-                  />
-                  <label for="floatingInput">Name</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input
-                    type="password"
-                    class="form-control"
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                    }}
-                    id="floatingInput"
-                    placeholder="password"
-                  />
-                  <label for="floatingInput">Password</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input
-                    type="password"
-                    class="form-control"
-                    onChange={(e) => {
-                      setConfrimpassword(e.target.value);
-                    }}
-                    id="floatingInput"
-                    placeholder="password"
-                  />
-                  <label for="floatingInput">Retype Password</label>
-                </div>
-                {alert === true && (
-                  <div class="alert alert-danger" role="alert">
-                    Password Does not match
+                  >
+                    <div class="form-floating mb-3">
+                      <input
+                        type="email"
+                        class="form-control"
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                        }}
+                        id="floatingInput"
+                        placeholder="name@example.com"
+                      />
+                      <label for="floatingInput">Email address</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        onChange={(e) => {
+                          setName(e.target.value);
+                        }}
+                        id="floatingInput"
+                        placeholder="user name"
+                      />
+                      <label for="floatingInput">Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="password"
+                        class="form-control"
+                        onChange={(e) => {
+                          setPassword(e.target.value);
+                        }}
+                        id="floatingInput"
+                        placeholder="password"
+                      />
+                      <label for="floatingInput">Password</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                      <input
+                        type="password"
+                        class="form-control"
+                        onChange={(e) => {
+                          setConfrimpassword(e.target.value);
+                        }}
+                        id="floatingInput"
+                        placeholder="password"
+                      />
+                      <label for="floatingInput">Retype Password</label>
+                    </div>
+                    {alert === true && (
+                      <div class="alert alert-danger" role="alert">
+                        Password Does not match
+                      </div>
+                    )}
+                    <div class="form-floating mb-3">
+                      <input
+                        type="url"
+                        class="form-control"
+                        onChange={(e) => {
+                          setAvatar(e.target.value);
+                        }}
+                        id="floatingInput"
+                        placeholder="https:www.avatar.com/useravatar"
+                      />
+                      <label for="floatingInput">Avatar Image</label>
+                    </div>
+
+                    <button
+                      className="btn btn-outline-success"
+                      onClick={RegisterManual}
+                    >
+                      Submit
+                    </button>
+                    <p className="btn btn-dark p-2" onClick={showRegister}>
+                      Back to Login
+                    </p>
                   </div>
                 )}
-                <div class="form-floating mb-3">
-                  <input
-                    type="url"
-                    class="form-control"
-                    onChange={(e) => {
-                      setAvatar(e.target.value);
-                    }}
-                    id="floatingInput"
-                    placeholder="https:www.avatar.com/useravatar"
-                  />
-                  <label for="floatingInput">Avatar Image</label>
-                </div>
-                <GoogleLogin
-                  clientId={props.authid}
-                  onSuccess={Register}
-                  render={(renderProps) => (
-                    <button
-                      className="btn btn-outline-primary"
-                      onClick={renderProps.onClick}
-                      disabled={renderProps.disabled}
-                    >
-                      Register With Google
-                    </button>
-                  )}
-                  theme="dark"
-                  icon="false"
-                  className="btn btn-outline-primary"
-                  buttonText="Register With Google Account"
-                  onFailure={Register}
-                />
-                <button
-                  className="btn btn-outline-success"
-                  onClick={RegisterManual}
-                >
-                  Submit
-                </button>
-                <a
-                  className="breadcrumb-item badge bg-dark p-2"
-                  onClick={showRegister}
-                >
-                  Back to Login
-                </a>
               </div>
-            )}
+            </div>
+
             {showRegisterform === false && (
               <div>
                 <div class="form-floating mb-3">
