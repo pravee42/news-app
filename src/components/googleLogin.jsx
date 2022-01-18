@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import emailjs from "emailjs-com";
 import "./../styles/App.css";
 export default function GoogleLoginComponent() {
@@ -27,10 +28,10 @@ export default function GoogleLoginComponent() {
       .then(
         (res) => {
           setLoading(false);
-          alert("Feedback Sent");
+          toast.success("Feedback Sent");
         },
         (err) => {
-          alert("error sending feedback");
+          toast.error("error sending feedback");
         }
       );
   };
