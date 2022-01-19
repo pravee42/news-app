@@ -15,9 +15,10 @@ export default function GoogleAuth(props) {
   const [avatar, setAvatar] = useState("");
   const [alert, setAlert] = useState(false);
   const [showRegisterform, setShowRegisterform] = useState(false);
+  const [showmanualLogin, setShowmanualLogin] = useState(false);
 
   const showRegister = async () => {
-    await setShowRegisterform(!showRegisterform).then(() => alert(";dfjhg"));
+    await setShowRegisterform(!showRegisterform);
   };
 
   const RegisterManual = async () => {
@@ -216,11 +217,62 @@ export default function GoogleAuth(props) {
                   >
                     Continue Without Login
                   </button>
+                  {showRegisterform === false && (
+                    <div class="p-3">
+                      <div class="form-floating mb-3">
+                        <input
+                          type="url"
+                          class="form-control"
+                          onChange={(e) => {
+                            setEmail(e.target.value);
+                          }}
+                          id="floatingInput"
+                          placeholder="Email Id"
+                        />
+                        <label for="floatingInput">Email Address</label>
+                      </div>
+                      <div class="form-floating mb-3">
+                        <input
+                          type="password"
+                          class="form-control"
+                          onChange={(e) => {
+                            setPassword(e.target.value);
+                          }}
+                          id="floatingInput"
+                          placeholder="Password"
+                        />
+                        <label for="floatingInput">Password</label>
+                      </div>
+                      <button
+                        className="btn btn-outline-success"
+                        onClick={LoginManual}
+                      >
+                        Login
+                      </button>
+                      <button
+                        className="btn btn-danger"
+                        style={{ margin: 5 }}
+                        onClick={forgetpassword}
+                      >
+                        Forget Password
+                      </button>
+                      <div className="d-flex gap-1 align-middle justify-content-center p-2">
+                        <p className="badge bg-danger">Dont have account:</p>
+                        <a
+                          href="#"
+                          className="breadcrumb-item"
+                          onClick={showRegister}
+                        >
+                          Register?
+                        </a>
+                      </div>
+                    </div>
+                  )}
                 </>
               )}
             </div>
             <div
-              className="d-flex flex-row justify-content-center align-middle"
+              className="d-flex flex-row justify-content-center align-middle w-50"
               style={{ flexWrap: "wrap" }}
             >
               <div>
@@ -234,7 +286,6 @@ export default function GoogleAuth(props) {
                         disabled={renderProps.disabled}
                         class="bi bi-google btn btn-dark h-0"
                       >
-                        {" "}
                         &nbsp; Register With Google
                       </h3>
                     )}
@@ -338,58 +389,6 @@ export default function GoogleAuth(props) {
                 )}
               </div>
             </div>
-
-            {showRegisterform === false && (
-              <div>
-                <div class="form-floating mb-3">
-                  <input
-                    type="url"
-                    class="form-control"
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                    }}
-                    id="floatingInput"
-                    placeholder="Email Id"
-                  />
-                  <label for="floatingInput">Email Address</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input
-                    type="password"
-                    class="form-control"
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                    }}
-                    id="floatingInput"
-                    placeholder="Password"
-                  />
-                  <label for="floatingInput">Password</label>
-                </div>
-                <button
-                  className="btn btn-outline-success"
-                  onClick={LoginManual}
-                >
-                  Login
-                </button>
-                <button
-                  className="btn btn-danger"
-                  style={{ margin: 5 }}
-                  onClick={forgetpassword}
-                >
-                  Forget Password
-                </button>
-                <div className="d-flex gap-1 align-middle justify-content-center p-2">
-                  <p className="badge bg-danger">Dont have account:</p>
-                  <a
-                    href="#"
-                    className="breadcrumb-item"
-                    onClick={showRegister}
-                  >
-                    Register?
-                  </a>
-                </div>
-              </div>
-            )}
           </div>
         ) : (
           <div
