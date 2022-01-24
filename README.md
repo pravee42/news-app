@@ -35,7 +35,7 @@
 
 ##### Feature Updates:
 
-- [ ] Add Articles
+- [x] Add Articles
 - [ ] Like and Speak about the news with friends
 - [x] Embed News with your Website
 - [x] Social Login
