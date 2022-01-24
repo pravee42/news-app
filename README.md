@@ -1,5 +1,8 @@
 ###  It is a react js application built to get the news for the user with google login by using the API called abipravi-newsapi. <br /> <br /> It will get news from several websites and then convert them into an API, Then serves to the user as a clean Web Application.
 
+<img src="https://images-ext-1.discordapp.net/external/1Qc4JYkUY73qFm9Ok_-k2DxW2R1q9IVaGkg5jfkps00/https/repository-images.githubusercontent.com/418104344/3fef1a18-e9b4-4731-bc07-000029af1c58" />
+
+
 #### **Demo link:** [Visit Demo](https://news.abipravi.live)
 
 
