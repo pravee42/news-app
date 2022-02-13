@@ -16,6 +16,7 @@ import ViewBookmark from "./components/viewbookmark";
 import Economy from "./components/economy";
 import Market from "./components/market";
 import SearchNews from "./components/search";
+import ArticlesComponent from "./components/articles/articles";
 import { ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -269,6 +270,9 @@ export default function App() {
                       <Route exact path="/search">
                         <SearchNews />
                       </Route>
+                      <Route exact path="/articles">
+                        <ArticlesComponent />
+                      </Route>
                       <Route exact path="/">
                         <Home />
                       </Route>
@@ -284,8 +288,8 @@ export default function App() {
       </Router>
       {/* </BrowserView> */}
       {/* <MobileView>
-				<HomePageMobileComponent />
-			</MobileView> */}
+        <HomePageMobileComponent />
+      </MobileView> */}
     </div>
   );
 }

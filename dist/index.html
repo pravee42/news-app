@@ -67,8 +67,8 @@
     ></script>
 
     <title>News App</title>
-  <script type="module" crossorigin src="/assets/index.f7a4b365.js"></script>
-  <link rel="modulepreload" href="/assets/vendor.dd1619f6.js">
+  <script type="module" crossorigin src="/assets/index.5918b70e.js"></script>
+  <link rel="modulepreload" href="/assets/vendor.76123eb8.js">
   <link rel="stylesheet" href="/assets/index.2fb2f890.css">
 </head>
   <body>
@@ -85,6 +85,27 @@
             .catch((err) => console.log("Failure: ", err));
         });
       }
+    </script>
+    <script>
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: '{your-app-id}',
+          cookie: true,
+          xfbml: true,
+          version: '{api-version}'
+        });
+
+        FB.AppEvents.logPageView();
+
+      };
+
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
     </script>
 
     <!-- Messenger Chat plugin Code -->
