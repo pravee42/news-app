@@ -18,17 +18,16 @@ const ArticlesCardComponent = (props) => {
   const mddis = `${props.articledata.article}`;
 
   const Like = async () => {
-    setLike(true);
-    setDisLike(false);
+    setLike(!like);
 
     let data = props.articledata;
     data.votes = data.votes + 1;
 
-    const res = await axios.put(
-      `https://newsapi-abipravi.herokuapp.com/articles/${data.id}/`,
-      data
-    );
-    await console.log(res);
+    // const res = await axios.put(
+    //   `https://newsapi-abipravi.herokuapp.com/articles/${data.id}/`,
+    //   data
+    // );
+    // await console.log(res);
     await setProgress(progress + 100);
   };
 
@@ -48,28 +47,47 @@ const ArticlesCardComponent = (props) => {
 
   return (
     <div
-      className="p-3 border border-2"
-      style={{ width: "100%", cursor: "pointer" }}
+      className="border border-2 position-relative overflow-hidden"
+      style={{
+        width: "100%",
+        cursor: "pointer",
+        borderRadius: "10px 10px",
+        zIndex: localStorage.getItem("open") === "true" ? "-1" : "0",
+      }}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <div className="p-3 overflow-hidden position-relative ">
-        {hover === true ? (
-          <div className="d-flex bg-dark position-absolute top-0 w-100 justify-content-between position-relative p-4">
-            <p className="text-dark">{props.articledata.author}</p>
-            <h3 className="bi bi-cloud-arrow-down-fill h-3 text-secondary"></h3>
-          </div>
-        ) : (
-          ""
-        )}
-        <div style={{ width: "600px", maxHeight: "400px", overflow: "hidden" }}>
+      {hover === true ? (
+        <div
+          style={{ borderRadius: "10px 10px 0 0" }}
+          className="d-flex bg-dark position-absolute top-0 w-100 justify-content-between position-relative p-2"
+        >
+          <p className="text-white" style={{ marginRight: 25 }}>
+            {props.articledata.author}
+          </p>
+          <Ripples>
+            <button className="btn btn-danger rounded circle">Save</button>
+          </Ripples>
+        </div>
+      ) : (
+        ""
+      )}
+      <div className="overflow-hidden">
+        <div style={{ width: "600px", maxHeight: "300px", overflow: "hidden" }}>
           <ReactMarkdown children={mdtitle} remarkPlugins={[remarkGfm]} />
         </div>
         <div
           style={{ maxHeight: "100px", margin: 5 }}
-          className="h-25 overflow-hidden"
+          className="overflow-hidden"
         >
           <ReactMarkdown children={mddis} remarkPlugins={[remarkGfm]} />
+        </div>
+        <div style={{ padding: "5px 0 0 5px" }}>
+          {like === false ? (
+            <h4 className="bi bi-heart text-dark" onClick={Like}></h4>
+          ) : (
+            <h4 className="bi bi-heart-fill text-danger" onClick={Like}></h4>
+          )}
         </div>
       </div>
     </div>

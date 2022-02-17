@@ -31,6 +31,11 @@ export default function App() {
 
   function setopen() {
     setOpen(!open);
+    if (open === true) {
+      localStorage.setItem("open", "false");
+    } else {
+      localStorage.setItem("open", "true");
+    }
   }
 
   useEffect(() => {
