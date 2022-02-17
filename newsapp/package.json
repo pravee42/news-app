@@ -6,27 +6,27 @@
   "author": "Abipravi",
   "homepage": "./",
   "dependencies": {
-    "@emotion/react": "^11.4.1",
-    "@emotion/styled": "^11.3.0",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
     "@material-ui/core": "^4.12.3",
     "@material-ui/icons": "^4.11.2",
-    "@mui/material": "^5.0.2",
+    "@mui/material": "^5.4.2",
     "@mui/styled-engine-sc": "^5.0.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
-    "agora-rtc-sdk": "^3.6.5",
+    "animate.css": "^4.1.1",
     "axios": "^0.21.1",
     "bootstrap-icons": "^1.7.1",
     "concurrently": "^6.2.1",
     "dotenv": "^10.0.0",
-    "electron-is-dev": "^2.0.0",
     "emailjs-com": "^3.2.0",
     "firebase": "^9.6.2",
     "firebase-tools": "^10.0.1",
     "google-auth-library": "^7.10.1",
     "googleapis-common": "^5.0.5",
     "marked": "^0.7.0",
+    "nprogress": "^0.2.0",
     "prettier": "^2.4.1",
     "react": "^17.0.2",
     "react-animated-heart": "^0.0.7-alpha.1",
@@ -36,44 +36,44 @@
     "react-gmail": "^1.0.1",
     "react-google-login": "^5.2.2",
     "react-hook-geolocation": "^1.0.11",
+    "react-hot-toast": "^2.2.0",
+    "react-icons": "^4.3.1",
+    "react-markdown": "^8.0.0",
+    "react-markdown-editor-lite": "^1.3.2",
+    "react-masonry-css": "^1.0.16",
     "react-messenger-customer-chat": "^0.8.0",
+    "react-ripples": "^2.2.1",
     "react-router-dom": "^5.2.0",
     "react-share": "^4.4.0",
     "react-swipeable": "^6.2.0",
     "react-toastify": "^8.0.3",
+    "react-top-loading-bar": "^2.1.0",
     "react-twitter-auth": "^0.0.13",
     "react-useanimations": "^2.0.8",
+    "remark-gfm": "^3.0.1",
     "styled-components": "^5.3.1",
     "web-vitals": "^0.2.4"
   },
- "scripts": {
-		"start": "react-scripts start",
-		"build": "react-scripts build",
-		"winBuild": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
-		"test": "react-scripts test",
-		"eject": "react-scripts eject"
-	},
-
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "winBuild": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
     "production": [
       ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "not dead"
     ],
     "development": [
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "babel-plugin-transform-remove-console": "^6.9.4",
-    "sass": "^1.43.4"
-  }
-}
+  }}

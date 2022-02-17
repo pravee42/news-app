@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import NewsCardComponent1 from "./../cards/newscard1";
 import axios from "axios";
 import loadingImage from "../assests/loading-splash.gif";
-import noBookMarkimage from "../assests/no-bookmark.webp";
 
 export default function ViewBookmark() {
   const [news, setNews] = useState([]);
@@ -21,8 +20,8 @@ export default function ViewBookmark() {
     await setLoading(false);
   };
 
-  useEffect(async () => {
-    await getNews();
+  useEffect(() => {
+    getNews();
   }, []);
 
   return (

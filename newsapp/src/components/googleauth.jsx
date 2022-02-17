@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { GoogleLogin } from "react-google-login";
 // import TwitterUserAuth from "./twitterauth";
 import axios from "axios";
@@ -16,7 +16,6 @@ export default function GoogleAuth(props) {
   const [avatar, setAvatar] = useState("");
   const [alert, setAlert] = useState(false);
   const [showRegisterform, setShowRegisterform] = useState(false);
-  const [showmanualLogin, setShowmanualLogin] = useState(false);
 
   const showRegister = async () => {
     await setShowRegisterform(!showRegisterform);
@@ -203,7 +202,7 @@ export default function GoogleAuth(props) {
                         <button
                           onClick={renderProps.onClick}
                           disabled={renderProps.disabled}
-                          class="bi bi-google btn btn-dark"
+                          className="bi bi-google btn btn-dark"
                         ></button>
                       )}
                       theme="dark"
@@ -219,30 +218,28 @@ export default function GoogleAuth(props) {
                     Continue Without Login
                   </button>
                   {showRegisterform === false && (
-                    <div class="p-3">
-                      <div class="form-floating mb-3">
+                    <div className="p-3">
+                      <div className="form-floating mb-3">
                         <input
                           type="url"
-                          class="form-control"
+                          className="form-control"
                           onChange={(e) => {
                             setEmail(e.target.value);
                           }}
-                          id="floatingInput"
                           placeholder="Email Id"
                         />
-                        <label for="floatingInput">Email Address</label>
+                        <label htmlFor="floatingInput">Email Address</label>
                       </div>
-                      <div class="form-floating mb-3">
+                      <div className="form-floating mb-3">
                         <input
                           type="password"
-                          class="form-control"
+                          className="form-control"
                           onChange={(e) => {
                             setPassword(e.target.value);
                           }}
-                          id="floatingInput"
                           placeholder="Password"
                         />
-                        <label for="floatingInput">Password</label>
+                        <label htmlFor="floatingInput">Password</label>
                       </div>
                       <button
                         className="btn btn-outline-success"
@@ -260,7 +257,7 @@ export default function GoogleAuth(props) {
                       <div className="d-flex gap-1 align-middle justify-content-center p-2">
                         <p className="badge bg-danger">Dont have account:</p>
                         <a
-                          href="#"
+                          href="/"
                           className="breadcrumb-item"
                           onClick={showRegister}
                         >
@@ -285,7 +282,7 @@ export default function GoogleAuth(props) {
                       <h3
                         onClick={renderProps.onClick}
                         disabled={renderProps.disabled}
-                        class="bi bi-google btn btn-dark h-0"
+                        className="bi bi-google btn btn-dark h-0"
                       >
                         &nbsp; Register With Google
                       </h3>
@@ -311,70 +308,65 @@ export default function GoogleAuth(props) {
                       justifyContent: "space-evenly",
                     }}
                   >
-                    <div class="form-floating mb-3">
+                    <div className="form-floating mb-3">
                       <input
                         type="email"
-                        class="form-control"
+                        className="form-control"
                         onChange={(e) => {
                           setEmail(e.target.value);
                         }}
-                        id="floatingInput"
                         placeholder="name@example.com"
                       />
-                      <label for="floatingInput">Email address</label>
+                      <label htmlFor="floatingInput">Email address</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <div className="form-floating mb-3">
                       <input
                         type="text"
-                        class="form-control"
+                        className="form-control"
                         onChange={(e) => {
                           setName(e.target.value);
                         }}
-                        id="floatingInput"
                         placeholder="user name"
                       />
-                      <label for="floatingInput">Name</label>
+                      <label htmlFor="floatingInput">Name</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <div className="form-floating mb-3">
                       <input
                         type="password"
-                        class="form-control"
+                        className="form-control"
                         onChange={(e) => {
                           setPassword(e.target.value);
                         }}
-                        id="floatingInput"
                         placeholder="password"
                       />
-                      <label for="floatingInput">Password</label>
+                      <label htmlFor="floatingInput">Password</label>
                     </div>
-                    <div class="form-floating mb-3">
+                    <div className="form-floating mb-3">
                       <input
                         type="password"
-                        class="form-control"
+                        className="form-control"
                         onChange={(e) => {
                           setConfrimpassword(e.target.value);
                         }}
-                        id="floatingInput"
                         placeholder="password"
                       />
-                      <label for="floatingInput">Retype Password</label>
+                      <label htmlFor="floatingInput">Retype Password</label>
                     </div>
                     {alert === true && (
-                      <div class="alert alert-danger" role="alert">
+                      <div className="alert alert-danger" role="alert">
                         Password Does not match
                       </div>
                     )}
-                    <div class="form-floating mb-3">
+                    <div className="form-floating mb-3">
                       <input
                         type="url"
-                        class="form-control"
+                        className="form-control"
                         onChange={(e) => {
                           setAvatar(e.target.value);
                         }}
-                        id="floatingInput"
                         placeholder="https:www.avatar.com/useravatar"
                       />
-                      <label for="floatingInput">Avatar Image</label>
+                      <label htmlFor="floatingInput">Avatar Image</label>
                     </div>
 
                     <button

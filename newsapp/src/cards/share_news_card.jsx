@@ -15,7 +15,7 @@ export default function SharedNewsCardComponent(props) {
 
   useEffect(() => {
     document.title = props.news;
-  }, []);
+  }, [props]);
 
   const add_to_bookmark = async (news, source, image) => {
     console.log(news, source, image);
@@ -45,7 +45,7 @@ export default function SharedNewsCardComponent(props) {
       <div className="newsCard border border-light shadow-sm p-3 mb-5 bg-body rounded">
         <img
           src={props.image}
-          lazy
+          lazy="true"
           alt={"Loading error"}
           style={{ maxHeight: 100, width: 150 }}
           className="img-thumbnail"

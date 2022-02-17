@@ -16,8 +16,8 @@ export const SharedNewsComponent = () => {
       });
   };
 
-  useEffect(async () => {
-    await getNews();
+  useEffect(() => {
+    getNews();
   }, []);
 
   return (

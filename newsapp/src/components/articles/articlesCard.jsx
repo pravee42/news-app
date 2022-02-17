@@ -1,48 +1,76 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import Ripples from "react-ripples";
+import LoadingBar from "react-top-loading-bar";
+import "animate.css";
+import "./customstyles.css";
+
 const ArticlesCardComponent = (props) => {
   const [like, setLike] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const [disLike, setDisLike] = useState(false);
+  const [hover, setHover] = useState(false);
+
+  const mdtitle = `${props.articledata.title}`;
+  const mddis = `${props.articledata.article}`;
+
+  const Like = async () => {
+    setLike(true);
+    setDisLike(false);
+
+    let data = props.articledata;
+    data.votes = data.votes + 1;
+
+    const res = await axios.put(
+      `https://newsapi-abipravi.herokuapp.com/articles/${data.id}/`,
+      data
+    );
+    await console.log(res);
+    await setProgress(progress + 100);
+  };
+
+  const DisLike = async () => {
+    setDisLike(true);
+    setLike(false);
+    let data = props.articledata;
+    data.votes = data.votes - 1;
+
+    const res = await axios.put(
+      `https://newsapi-abipravi.herokuapp.com/articles/${data.id}/`,
+      data
+    );
+    await console.log(res);
+    await setProgress(progress + 100);
+  };
 
   return (
     <div
-      style={{ cursor: "pointer" }}
-      className="border shadow-sm w-100 h-auto position-relative p-3"
+      className="p-3 border border-2"
+      style={{ width: "100%", cursor: "pointer" }}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
     >
-      <div className="card-body h-55 overflow-hidden">
-        <h4 className="card-title">{props.articledata.title}</h4>
-        <p className="card-text">{props.articledata.article}</p>
-      </div>
-      <div className="d-flex justify-content-center gap-3 position-absolute bottom-0 p-3 bg-white end-0">
-        {/* <h5
-          class={
-            like == false
-              ? "bi bi-heart text-danger"
-              : "bi bi-heart-fill text-danger"
-          }
-          onClick={() => setLike(!like)}
+      <div className="p-3 overflow-hidden position-relative ">
+        {hover === true ? (
+          <div className="d-flex bg-dark position-absolute top-0 w-100 justify-content-between position-relative p-4">
+            <p className="text-dark">{props.articledata.author}</p>
+            <h3 className="bi bi-cloud-arrow-down-fill h-3 text-secondary"></h3>
+          </div>
+        ) : (
+          ""
+        )}
+        <div style={{ width: "600px", maxHeight: "400px", overflow: "hidden" }}>
+          <ReactMarkdown children={mdtitle} remarkPlugins={[remarkGfm]} />
+        </div>
+        <div
+          style={{ maxHeight: "100px", margin: 5 }}
+          className="h-25 overflow-hidden"
         >
-          {" "}
-          {props.articledata.votes > 1000 && props.articledata.votes < 10000
-            ? props.articledata.votes.toString().slice(0, 1) + "k"
-            : ""}
-          {props.articledata.votes >= 10000 && props.articledata.votes <= 100000
-            ? props.articledata.votes.toString().slice(0, 2) + "k"
-            : ""}
-          {props.articledata.votes >= 100000 &&
-          props.articledata.votes < 1000000
-            ? props.articledata.votes.toString().slice(0, 3) + "k"
-            : ""}
-          {props.articledata.votes >= 1000000 &&
-          props.articledata.votes < 10000000
-            ? props.articledata.votes.toString().slice(0, 1) + "m"
-            : ""}
-          {props.articledata.votes > 1 && props.articledata.votes < 1000
-            ? props.articledata.votes
-            : ""}
-        </h5> */}
-        <h5 class="bi bi-bookmark-plus-fill text-primary"></h5>
-        <h5 class="bi bi-send text-primary"></h5>
+          <ReactMarkdown children={mddis} remarkPlugins={[remarkGfm]} />
+        </div>
       </div>
     </div>
   );

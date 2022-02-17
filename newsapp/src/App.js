@@ -35,7 +35,7 @@ export default function App() {
 
   useEffect(() => {
     setUser(localStorage.getItem("user"));
-  }, [localStorage.getItem("user")]);
+  }, []);
 
   const handlers = useSwipeable({
     onSwipedRight: () => setOpen(!open),
@@ -91,6 +91,7 @@ export default function App() {
                     <div
                       style={{
                         position: "absolute",
+                        zIndex: "99",
                       }}
                     >
                       <div
@@ -106,7 +107,7 @@ export default function App() {
                         <img
                           src={localStorage.getItem("avatar")}
                           onClick={setopen}
-                          lazy
+                          lazy={"true"}
                           className="avatar_img"
                           alt="avatar"
                         />
