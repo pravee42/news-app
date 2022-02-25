@@ -11,7 +11,6 @@
 /src/clintstore.jsx
 
 # production
-/build
 
 # misc
 .DS_Store
