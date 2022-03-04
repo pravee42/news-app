@@ -256,13 +256,13 @@ export default function GoogleAuth(props) {
                       </button>
                       <div className="d-flex gap-1 align-middle justify-content-center p-2">
                         <p className="badge bg-danger">Dont have account:</p>
-                        <a
-                          href="/"
-                          className="breadcrumb-item"
+                        <p
+                          className="badge bg-primary"
+                          style={{ cursor: "pointer" }}
                           onClick={showRegister}
                         >
                           Register?
-                        </a>
+                        </p>
                       </div>
                     </div>
                   )}
@@ -296,7 +296,7 @@ export default function GoogleAuth(props) {
                 )}
               </div>
               <div>
-                {showRegisterform && (
+                {showRegisterform === true && (
                   <div
                     className="d-grid gap-2"
                     style={{
